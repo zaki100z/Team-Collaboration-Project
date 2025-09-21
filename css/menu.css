@@ -160,8 +160,9 @@ transition: transform 0.3s;
 transform: translateY(-5px);
 }
 
-.item-img {
-height: 200px;
+.item-img img {
+width:100%;
+height:230px;
 background-color: #ddd;
 display: flex;
 align-items: center;
