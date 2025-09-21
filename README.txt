@@ -12,9 +12,9 @@ Files included:
 6. reservations.html - Reservations page with booking form and policy information
 
 Team Members:
-- John Smith
-- Maria Garcia
-- David Kim
+- Zaki Sadaqatzada
+- KhMatygul Khaisar
+-Askaruly Temirlan
 
 Features:
 - Fully responsive design
@@ -27,5 +27,6 @@ To use:
 1. Extract all files to a folder
 2. Open index.html in a web browser
 3. Navigate between pages using the navigation menu
+
 
 Note: Image placeholders are used where real images would be added in a production environment.
