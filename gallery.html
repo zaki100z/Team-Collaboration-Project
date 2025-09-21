@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Gourmet Haven</title>
+   <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Gourmet Haven</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="gallery-hero">
+        <div class="container">
+            <h1>Our Gallery</h1>
+            <p>A visual journey through our culinary world</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="food">Food</button>
+                <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="food">
+                    <img src="Images/food2.jpg" alt="">
+                    <div class="gallery-caption">Signature Grilled Salmon</div>
+                </div>
+                <div class="gallery-item" data-category="restaurant">
+                    <img src="Images/resturant3.jpg" alt="">
+                    <div class="gallery-caption">Main Dining Room</div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="Images/food3.jpg" alt="">
+                    <div class="gallery-caption">Beef Wellington</div>
+                </div>
+                <div class="gallery-item" data-category="events">
+                    <img src="Images/event1.jpg" alt="">
+                    <div class="gallery-caption">Wine Tasting Event</div>
+                </div>
+                <div class="gallery-item" data-category="restaurant">
+                    <img src="Images/resturant2.jpg" alt="">
+                    <div class="gallery-caption">Outdoor Patio</div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="Images/food4.jpg" alt="">
+                    <div class="gallery-caption">Tiramisu Dessert</div>
+                </div>
+                <div class="gallery-item" data-category="events">
+                    <img src="Images/event5.jpg" alt="">
+                    <div class="gallery-caption">Cooking Class</div>
+                </div>
+                <div class="gallery-item" data-category="food">
+                    <img src="Images/food5.jpg" alt="">
+                    <div class="gallery-caption">Seasonal Salad</div>
+                </div>
+                <div class="gallery-item" data-category="restaurant">
+                   <img src="Images/resturant1.jpg" alt="">
+                    <div class="gallery-caption">Private Dining Room</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content" id="lightbox-content">
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <span class="close-btn" id="close-btn">&times;</span>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm</p>
+                    <p>Friday - Saturday: 11am - 11pm</p>
+                    <p>Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Foodville, FH 54321</p>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                     <div class="footer-section-links">
+                        <a href="https://www.facebook.com">Facebook</a>|<a href="https://www.twitter.com">Twitter</a>|<a href="https://www.Instagram.com">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-section-hr">
+            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+            <p>Developed by: Zaki Sadaqatzada</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple lightbox functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeBtn = document.getElementById('close-btn');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter items
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Lightbox functionality
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const caption = this.querySelector('.gallery-caption').textContent;
+                    lightboxContent.textContent = 'Image would appear here: ' + caption;
+                    lightboxCaption.textContent = caption;
+                    lightbox.style.display = 'flex';
+                });
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                lightbox.style.display = 'none';
+            });
+            
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

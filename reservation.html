@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations - Gourmet Haven</title>
+    <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Gourmet Haven</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="reservations-hero">
+        <div class="container">
+            <h1>Make a Reservation</h1>
+            <p>Secure your table for an unforgettable dining experience</p>
+        </div>
+    </section>
+    <section class="reservations-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Table</h2>
+            <div class="reservation-container">
+                <div class="reservation-form">
+                    <form id="reservationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="">Select guests</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6 People</option>
+                                    <option value="7">7+ People (Large Party)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="special-requests">Special Requests (optional)</label>
+                            <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Book Now</button>
+                    </form>
+                </div>
+                
+                <div class="reservation-info">
+                    <h3>Reservation Details</h3>
+                    <div class="info-item">
+                        <h4>Operating Hours</h4>
+                        <p>Monday - Thursday: 11am - 10pm</p>
+                        <p>Friday - Saturday: 11am - 11pm</p>
+                        <p>Sunday: 12pm - 9pm</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4>For Large Parties</h4>
+                        <p>For groups of 7 or more, please call us directly at (555) 123-4567 to make arrangements.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4>Special Occasions</h4>
+                        <p>Celebrating a special event? Let us know in your special requests and we'll make it memorable!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h3>Reservation Policy</h3>
+                <ul class="policy-list">
+                    <li>Reservations are held for 15 minutes past the reserved time.</li>
+                    <li>For parties of 5 or more, a credit card may be required to secure your reservation.</li>
+                    <li>24-hour notice is required for cancellations to avoid a cancellation fee.</li>
+                    <li>Dress code: Business casual. No beachwear or athletic attire please.</li>
+                </ul>
+                <p>For any questions about our reservation policy, please call us at (555) 123-4567.</p>
+            </div>
+            
+            <div class="events-section">
+                <h2 class="section-title">Private Events & Catering</h2>
+                <p>Host your next special event at Gourmet Haven. We offer private dining spaces and custom menus for:</p>
+                
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-img">
+                            <img src="Images/event3.jpg" alt="">
+                        </div>
+                        <div class="event-info">
+                            <h3>Corporate Events</h3>
+                            <p>Business dinners, client meetings, and company celebrations.</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-img">
+                            <img src="Images/event2.jpg" alt="">
+                        </div>
+                        <div class="event-info">
+                            <h3>Weddings & Receptions</h3>
+                            <p>Intimate wedding ceremonies and reception dinners.</p>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-img">
+                            <img src="Images/event7.jpg" alt="">
+                        </div>
+                        <div class="event-info">
+                            <h3>Special Occasions</h3>
+                            <p>Birthdays, anniversaries, and other milestone celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="contact.html" class="btn">Inquire About Private Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm</p>
+                    <p>Friday - Saturday: 11am - 11pm</p>
+                    <p>Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Foodville, FH 54321</p>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                     <div class="footer-section-links">
+                        <a href="https://www.facebook.com">Facebook</a>|<a href="https://www.twitter.com">Twitter</a>|<a href="https://www.Instagram.com">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-section-hr">
+            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+            <p>Developed by: Zaki Sadaqatzada</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation request! We will confirm your booking shortly.');
+            this.reset();
+        });
+        
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+    </script>
+</body>
+</html>
