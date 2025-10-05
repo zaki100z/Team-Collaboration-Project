@@ -4,128 +4,399 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Gourmet Haven</title>
-   <link rel="stylesheet" href="css/gallery.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <nav>
-                <div class="logo">Gourmet Haven</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+            <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="gallery-hero">
-        <div class="container">
-            <h1>Our Gallery</h1>
-            <p>A visual journey through our culinary world</p>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Photo Gallery</h2>
-            
-            <div class="gallery-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="food">Food</button>
-                <button class="filter-btn" data-filter="restaurant">Restaurant</button>
-                <button class="filter-btn" data-filter="events">Events</button>
             </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="food">
-                    <img src="Images/food2.jpg" alt="">
-                    <div class="gallery-caption">Signature Grilled Salmon</div>
-                </div>
-                <div class="gallery-item" data-category="restaurant">
-                    <img src="Images/resturant3.jpg" alt="">
-                    <div class="gallery-caption">Main Dining Room</div>
-                </div>
-                <div class="gallery-item" data-category="food">
-                    <img src="Images/food3.jpg" alt="">
-                    <div class="gallery-caption">Beef Wellington</div>
-                </div>
-                <div class="gallery-item" data-category="events">
-                    <img src="Images/event1.jpg" alt="">
-                    <div class="gallery-caption">Wine Tasting Event</div>
-                </div>
-                <div class="gallery-item" data-category="restaurant">
-                    <img src="Images/resturant2.jpg" alt="">
-                    <div class="gallery-caption">Outdoor Patio</div>
-                </div>
-                <div class="gallery-item" data-category="food">
-                    <img src="Images/food4.jpg" alt="">
-                    <div class="gallery-caption">Tiramisu Dessert</div>
-                </div>
-                <div class="gallery-item" data-category="events">
-                    <img src="Images/event5.jpg" alt="">
-                    <div class="gallery-caption">Cooking Class</div>
-                </div>
-                <div class="gallery-item" data-category="food">
-                    <img src="Images/food5.jpg" alt="">
-                    <div class="gallery-caption">Seasonal Salad</div>
-                </div>
-                <div class="gallery-item" data-category="restaurant">
-                   <img src="Images/resturant1.jpg" alt="">
-                    <div class="gallery-caption">Private Dining Room</div>
+        </div>
+    </nav>
+
+    <section class="gallery-hero py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Our Gallery</h1>
+                    <p class="lead">A visual journey through our culinary world</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content" id="lightbox-content">
-        </div>
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-        <span class="close-btn" id="close-btn">&times;</span>
-    </div>
-
-    <footer>
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Hours</h3>
-                    <p>Monday - Thursday: 11am - 10pm</p>
-                    <p>Friday - Saturday: 11am - 11pm</p>
-                    <p>Sunday: 12pm - 9pm</p>
+            <h2 class="section-title text-center mb-5">Our Restaurant Features</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/resturant3.jpg" class="card-img-top" alt="Main Dining Room">
+                        <div class="card-body">
+                            <h3 class="card-title">Elegant Dining Experience</h3>
+                            <p class="card-text">Our main dining room offers a sophisticated atmosphere perfect for any occasion. With carefully curated lighting and comfortable seating, we ensure every meal is memorable.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>123 Culinary Street</p>
-                    <p>Foodville, FH 54321</p>
-                    <p>(555) 123-4567</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                     <div class="footer-section-links">
-                        <a href="https://www.facebook.com">Facebook</a>|<a href="https://www.twitter.com">Twitter</a>|<a href="https://www.Instagram.com">Instagram</a>
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/resturant2.jpg" class="card-img-top" alt="Outdoor Patio">
+                        <div class="card-body">
+                            <h3 class="card-title">Seasonal Outdoor Patio</h3>
+                            <p class="card-text">Enjoy al fresco dining on our beautiful outdoor patio. Open during warmer months, it's the perfect setting for a romantic dinner or gathering with friends.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr class="footer-section-hr">
-            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
-            <p>Developed by: Zaki Sadaqatzada</p>
+        </div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Culinary Highlights</h2>
+            <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active">
+                        <img src="Images/food2.jpg" class="d-block w-100" alt="Signature Grilled Salmon">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Signature Grilled Salmon</h5>
+                            <p>Perfectly grilled salmon with seasonal vegetables</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/food3.jpg" class="d-block w-100" alt="Beef Wellington">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Beef Wellington</h5>
+                            <p>A classic dish prepared with premium ingredients</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/food4.jpg" class="d-block w-100" alt="Tiramisu Dessert">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Tiramisu Dessert</h5>
+                            <p>Our signature Italian dessert</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/food5.jpg" class="d-block w-100" alt="Seasonal Salad">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Seasonal Salad</h5>
+                            <p>Fresh ingredients from local farms</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/resturant1.jpg" class="d-block w-100" alt="Private Dining Room">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Private Dining Room</h5>
+                            <p>Perfect for special occasions</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/event1.jpg" class="d-block w-100" alt="Wine Tasting Event">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Wine Tasting Event</h5>
+                            <p>Monthly wine tasting with sommelier</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Images/event5.jpg" class="d-block w-100" alt="Cooking Class">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Cooking Class</h5>
+                            <p>Learn from our master chefs</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Dessert Platter">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Dessert Platter</h5>
+                            <p>A selection of our finest desserts</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Cocktail Bar">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Cocktail Bar</h5>
+                            <p>Handcrafted cocktails by our expert mixologists</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Special Offers</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/event1.jpg" class="card-img-top" alt="Wine Tasting">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Wine Tasting Evenings</h3>
+                            <p class="card-text flex-grow-1">Join us every Friday for an exclusive wine tasting experience with our sommelier. Sample premium wines paired with artisanal cheeses.</p>
+                            <div class="mt-auto">
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-primary">Details</button>
+                                    <button type="button" class="btn btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/event5.jpg" class="card-img-top" style="height:200px; object-fit:cover;" alt="Cooking Class">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Chef's Table Experience</h3>
+                            <p class="card-text flex-grow-1">An intimate dining experience at our chef's table. Watch our culinary team prepare your meal and enjoy exclusive dishes.</p>
+                            <div class="mt-auto">
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-primary">Details</button>
+                                    <button type="button" class="btn btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Seasonal Menu">
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="card-title">Seasonal Menu Launch</h3>
+                            <p class="card-text flex-grow-1">Experience our new seasonal menu featuring fresh, locally-sourced ingredients. Available for a limited time only.</p>
+                            <div class="mt-auto">
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-primary">Details</button>
+                                    <button type="button" class="btn btn-primary">View Menu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Photo Gallery</h2>
+            <div class="d-flex justify-content-center mb-4">
+                <div class="btn-group" role="group" aria-label="Gallery filters">
+                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="food">Food</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="restaurant">Restaurant</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="events">Events</button>
+                </div>
+            </div>
+            
+           
+            <div class="row g-4 gallery-grid">
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="food">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/food2.jpg" class="card-img-top" style="height:200px; object-fit:cover;"alt="Signature Grilled Salmon">
+                        <div class="card-body">
+                            <h5 class="card-title">Signature Grilled Salmon</h5>
+                            <p class="card-text">Perfectly grilled salmon with seasonal vegetables and our special herb butter sauce.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="restaurant">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/resturant3.jpg" class="card-img-top" alt="Main Dining Room">
+                        <div class="card-body">
+                            <h5 class="card-title">Main Dining Room</h5>
+                            <p class="card-text">Our elegant main dining area with comfortable seating and ambient lighting.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="food">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/food3.jpg" class="card-img-top" alt="Beef Wellington">
+                        <div class="card-body">
+                            <h5 class="card-title">Beef Wellington</h5>
+                            <p class="card-text">A classic preparation of tender beef wrapped in puff pastry with mushroom duxelles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="events">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/event1.jpg" class="card-img-top" alt="Wine Tasting Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Wine Tasting Event</h5>
+                            <p class="card-text">Monthly wine tasting events featuring selections from around the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="restaurant">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/resturant2.jpg" class="card-img-top" alt="Outdoor Patio">
+                        <div class="card-body">
+                            <h5 class="card-title">Outdoor Patio</h5>
+                            <p class="card-text">Our beautiful patio area, perfect for al fresco dining during warmer months.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="food">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="Images/food4.jpg" class="card-img-top" alt="Tiramisu Dessert">
+                        <div class="card-body">
+                            <h5 class="card-title">Tiramisu Dessert</h5>
+                            <p class="card-text">Our signature tiramisu with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="p-4 p-md-5 border rounded bg-white shadow-sm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="" selected disabled>Choose...</option>
+                                    <option>Reservation Inquiry</option>
+                                    <option>Private Event</option>
+                                    <option>Feedback</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Subscribe to our newsletter
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Hours</h3>
+                    <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
+                    <p class="mb-1">Friday - Saturday: 11am - 11pm</p>
+                    <p class="mb-0">Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <p class="mb-1">123 Culinary Street</p>
+                    <p class="mb-1">Foodville, FH 54321</p>
+                    <p class="mb-0">(555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Follow Us</h3>
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <a href="https://www.facebook.com" class="text-white text-decoration-none me-3">Facebook</a>
+                        <span class="text-white">|</span>
+                        <a href="https://www.twitter.com" class="text-white text-decoration-none mx-3">Twitter</a>
+                        <span class="text-white">|</span>
+                        <a href="https://www.Instagram.com" class="text-white text-decoration-none ms-3">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1">&copy; 2025 Gourmet Haven. All rights reserved.</p>
+                    <p class="mb-0">Developed by: Zaki Sadaqatzada</p>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
-        // Simple lightbox functionality
+        // Gallery filter functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.btn-group .btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
-            const lightbox = document.getElementById('lightbox');
-            const lightboxContent = document.getElementById('lightbox-content');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const closeBtn = document.getElementById('close-btn');
-            const filterBtns = document.querySelectorAll('.filter-btn');
             
             // Filter functionality
             filterBtns.forEach(btn => {
@@ -145,26 +416,6 @@
                         }
                     });
                 });
-            });
-            
-            // Lightbox functionality
-            galleryItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const caption = this.querySelector('.gallery-caption').textContent;
-                    lightboxContent.textContent = 'Image would appear here: ' + caption;
-                    lightboxCaption.textContent = caption;
-                    lightbox.style.display = 'flex';
-                });
-            });
-            
-            closeBtn.addEventListener('click', function() {
-                lightbox.style.display = 'none';
-            });
-            
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    lightbox.style.display = 'none';
-                }
             });
         });
     </script>
