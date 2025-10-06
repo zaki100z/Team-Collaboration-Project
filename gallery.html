@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
@@ -298,7 +297,6 @@
         </div>
     </section>
 
-    <!-- Form Section -->
     <section class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Contact Us</h2>
@@ -353,8 +351,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
             <div class="row g-4">
@@ -393,21 +389,21 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script>
-        // Gallery filter functionality
+    
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.btn-group .btn');
             const galleryItems = document.querySelectorAll('.gallery-item');
             
-            // Filter functionality
+        
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const filter = this.getAttribute('data-filter');
                     
-                    // Update active button
+                    
                     filterBtns.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter items
+        
                     galleryItems.forEach(item => {
                         if (filter === 'all' || item.getAttribute('data-category') === filter) {
                             item.style.display = 'block';

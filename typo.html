@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven - Responsive Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #DAA520;
+            --accent-color: #A0522D;
+            --text-color: #333;
+            --light-bg: #F5F5F5;
+            --dark-bg: #343a40;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+       
+        body {
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        p, li, a {
+            font-size: 1rem;
+        }
+
+       
+        @media (min-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.7rem;
+            }
+
+            p, li, a {
+                font-size: 1.1rem;
+            }
+        }
+
+      
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            p, li, a {
+                font-size: 1.2rem;
+            }
+        }
+
+      
+        .navbar {
+            background-color: var(--dark-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--dark-bg);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .navbar-nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-link {
+            color: white;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-toggler {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+   
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+    
+        .demo-section {
+            padding: 3rem 0;
+        }
+
+        .typography-demo {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .primary-color {
+            background-color: var(--primary-color);
+        }
+
+        .secondary-color {
+            background-color: var(--secondary-color);
+        }
+
+        .accent-color {
+            background-color: var(--accent-color);
+        }
+
+       
+        .card-group-container {
+            padding: 3rem 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .card-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+       
+        @media (min-width: 768px) {
+            .navbar-nav {
+                position: static;
+                flex-direction: row;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                width: auto;
+                background: none;
+            }
+
+            .nav-item {
+                padding: 0 1rem;
+                border-bottom: none;
+            }
+
+            .navbar-toggler {
+                display: none;
+            }
+
+            .card-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                flex: 1 1 calc(50% - 1rem);
+            }
+        }
+
+       
+        @media (min-width: 1024px) {
+            .card {
+                flex: 1 1 calc(33.333% - 1rem);
+            }
+        }
+
+       
+        .footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .footer-section {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-container">
+                <a href="#" class="navbar-brand">Gourmet Haven</a>
+                <button class="navbar-toggler" id="navbarToggler">
+                    ☰
+                </button>
+                <ul class="navbar-nav" id="navbarNav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reservation.html" class="btn btn-primary">Reservations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Responsive Design with CSS</h1>
+            <p>Demonstrating media queries for typography and card layouts</p>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <div class="container">
+            <div class="typography-demo">
+                <h2 class="section-title">Responsive Typography</h2>
+                <p>This section demonstrates how font sizes change based on screen size. Resize your browser to see the changes.</p>
+                
+                <h3>Mobile First Approach</h3>
+                <p>We start with smaller font sizes for mobile devices and scale up for tablets and desktops.</p>
+                
+                <h3>Breakpoints Used:</h3>
+                <ul>
+                    <li>• Mobile: &lt; 768px</li>
+                    <li>• Tablet: 768px - 1024px</li>
+                    <li>• Desktop: &gt; 1024px</li>
+                </ul>
+                
+                <h3>Color Palette</h3>
+                <p>Colors inspired by the restaurant theme:</p>
+                <div class="color-palette">
+                    <div class="color-box primary-color">Primary</div>
+                    <div class="color-box secondary-color">Secondary</div>
+                    <div class="color-box accent-color">Accent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="card-group-container">
+        <div class="container">
+            <h2 class="section-title">Our Specialties</h2>
+            <div class="card-group">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1480&q=80" alt="Fresh Salads" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Fresh Salads</h3>
+                        <p class="card-text">Our salads are made with the freshest ingredients, sourced locally from trusted farmers. Each salad is a perfect balance of flavors and textures.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1365&q=80" alt="Gourmet Burgers" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Gourmet Burgers</h3>
+                        <p class="card-text">Handcrafted burgers with premium beef, artisanal buns, and unique toppings that will redefine your burger experience.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Dessert Selection" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dessert Selection</h3>
+                        <p class="card-text">Indulge in our decadent dessert creations, from classic favorites to innovative treats that will satisfy your sweet tooth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday - Thursday: 11am - 10pm</p>
+                    <p>Friday - Saturday: 11am - 11pm</p>
+                    <p>Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>123 Culinary Street</p>
+                    <p>Foodville, FH 54321</p>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="footer-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
+                <p>Developed by: Zaki Sadaqatzada</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.getElementById('navbarToggler').addEventListener('click', function() {
+            document.getElementById('navbarNav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
