@@ -1,113 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gourmet-Haven-Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <nav>
-                <div class="logo">Gourmet Haven</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+            <a class="navbar-brand logo" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Gourmet Haven</h1>
-            <p>Experience the finest culinary delights prepared by our award-winning chefs using locally sourced ingredients</p>
-            <a href="reservation.html" class="btn">Book a Table</a>
+    </nav>
+
+    <section class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="hero-content text-center">
+                        <h1>Welcome to Gourmet Haven</h1>
+                        <p>Experience the finest culinary delights prepared by our award-winning chefs using locally sourced ingredients</p>
+                        <a href="reservation.html" class="btn btn-primary">Book a Table</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
     <section class="featured-dishes">
         <div class="container">
-            <h2 class="section-title">Our Specialties</h2>
-            <div class="dish-grid">
-                <div class="dish-card">
-                    <div class="dish-img">
-                        <img src="images/grilled-salmon.jpg">
-                    </div>
-                    <div class="dish-info">
-                        <h3>Grilled Salmon</h3>
-                        <p>Fresh salmon grilled to perfection with herbs and lemon butter sauce.</p>
-                    </div>
-                </div>
-                <div class="dish-card">
-                    <div class="dish-img">
-                        <img src="images/beef-wellington.jpg">
-                    </div>
-                    <div class="dish-info">
-                        <h3>Beef Wellington</h3>
-                        <p>Premium beef tenderloin wrapped in puff pastry with mushroom duxelles.</p>
+            <h2 class="section-title text-center">Our Specialties</h2>
+            <div class="row g-4 mt-3">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dish-card card h-100">
+                        <div class="dish-img">
+                            <img src="images/grilled-salmon.jpg" class="card-img-top" alt="Grilled Salmon">
+                        </div>
+                        <div class="dish-info card-body">
+                            <h3 class="h5">Grilled Salmon</h3>
+                            <p class="mb-0">Fresh salmon grilled to perfection with herbs and lemon butter sauce.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="dish-card">
-                    <div class="dish-img">
-                        <img src="images/teramisu.jpg">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dish-card card h-100">
+                        <div class="dish-img">
+                            <img src="images/beef-wellington.jpg" class="card-img-top" alt="Beef Wellington">
+                        </div>
+                        <div class="dish-info card-body">
+                            <h3 class="h5">Beef Wellington</h3>
+                            <p class="mb-0">Premium beef tenderloin wrapped in puff pastry with mushroom duxelles.</p>
+                        </div>
                     </div>
-                    <div class="dish-info">
-                        <h3>Tiramisu</h3>
-                        <p>Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dish-card card h-100">
+                        <div class="dish-img">
+                            <img src="images/teramisu.jpg" class="card-img-top" alt="Tiramisu">
+                        </div>
+                        <div class="dish-info card-body">
+                            <h3 class="h5">Tiramisu</h3>
+                            <p class="mb-0">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The best dining experience I've had this year. The service was impeccable and the food was extraordinary!"</p>
-                    <p class="testimonial-author">- Sarah Johnson</p>
+            <h2 class="section-title text-center">What Our Customers Say</h2>
+            <div class="row g-4 mt-3">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="testimonial-card card-testimonial h-100">
+                        <div class="card-body">
+                            <p class="testimonial-text">"The best dining experience I've had this year. The service was impeccable and the food was extraordinary!"</p>
+                            <p class="testimonial-author mb-0">- Sarah Johnson</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Every dish was a masterpiece. The flavors were perfectly balanced and the presentation was stunning."</p>
-                    <p class="testimonial-author">- Michael Chen</p>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="testimonial-card card-testimonial h-100">
+                        <div class="card-body">
+                            <p class="testimonial-text">"Every dish was a masterpiece. The flavors were perfectly balanced and the presentation was stunning."</p>
+                            <p class="testimonial-author mb-0">- Michael Chen</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"From appetizers to desserts, everything was exceptional. Will definitely be coming back soon!"</p>
-                    <p class="testimonial-author">- Emily Rodriguez</p>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="testimonial-card card-testimonial h-100">
+                        <div class="card-body">
+                            <p class="testimonial-text">"From appetizers to desserts, everything was exceptional. Will definitely be coming back soon!"</p>
+                            <p class="testimonial-author mb-0">- Emily Rodriguez</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer>
+
+    <footer class="mt-5">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-content d-flex flex-column flex-md-row justify-content-around align-items-start">
+                <div class="footer-section mb-4 mb-md-0">
                     <h3>Hours</h3>
-                    <p>Monday - Thursday: 11am - 10pm</p>
-                    <p>Friday - Saturday: 11am - 11pm</p>
-                    <p>Sunday: 12pm - 9pm</p>
+                    <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
+                    <p class="mb-1">Friday - Saturday: 11am - 11pm</p>
+                    <p class="mb-0">Sunday: 12pm - 9pm</p>
                 </div>
-                <div class="footer-section">
+
+                <div class="footer-section mb-4 mb-md-0">
                     <h3>Contact</h3>
-                    <p>123 Culinary Street</p>
-                    <p>Foodville, FH 54321</p>
-                    <p>(555) 123-4567</p>
+                    <p class="mb-1">123 Culinary Street</p>
+                    <p class="mb-1">Foodville, FH 54321</p>
+                    <p class="mb-0">(555) 123-4567</p>
                 </div>
-                <div class="footer-section">
+
+                <div class="footer-section mb-4 mb-md-0">
                     <h3>Follow Us</h3>
-                     <div class="footer-section-links">
-                        <a href="https://www.facebook.com">Facebook</a>|<a href="https://www.x.com">X</a>|<a href="https://www.Instagram.com">Instagram</a>
+                    <div class="footer-section-links mt-2">
+                        <a href="https://www.facebook.com" class="text-white text-decoration-none me-2">Facebook</a>
+                        <a href="https://www.x.com" class="text-white text-decoration-none me-2">X</a>
+                        <a href="https://www.instagram.com" class="text-white text-decoration-none">Instagram</a>
                     </div>
                 </div>
             </div>
-            <hr class="footer-section-hr">
-            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
-            <p>Page made by: Askaruly Temirlan</p>
+
+            <hr class="footer-section-hr my-4">
+            <p class="mb-1">&copy; 2025 Gourmet Haven. All rights reserved.</p>
+            <p class="mb-0">Page made by: Askaruly Temirlan</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+```
