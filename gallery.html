@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -146,14 +147,14 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Dessert Platter">
+                        <img src="images/food2.jpg" class="d-block w-100" alt="Dessert Platter">
                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
                             <h5>Dessert Platter</h5>
                             <p>A selection of our finest desserts</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Cocktail Bar">
+                        <img src="images/food3.jpg" class="d-block w-100" alt="Cocktail Bar">
                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
                             <h5>Cocktail Bar</h5>
                             <p>Handcrafted cocktails by our expert mixologists</p>
@@ -184,8 +185,8 @@
                             <p class="card-text flex-grow-1">Join us every Friday for an exclusive wine tasting experience with our sommelier. Sample premium wines paired with artisanal cheeses.</p>
                             <div class="mt-auto">
                                 <div class="btn-group w-100" role="group">
-                                    <button type="button" class="btn btn-outline-primary">Details</button>
-                                    <button type="button" class="btn btn-primary">Book Now</button>
+                                    <button type="button" class="btn btn-outline-danger">Details</button>
+                                    <button type="button" class="btn btn-danger">Book Now</button>
                                 </div>
                             </div>
                         </div>
@@ -199,8 +200,8 @@
                             <p class="card-text flex-grow-1">An intimate dining experience at our chef's table. Watch our culinary team prepare your meal and enjoy exclusive dishes.</p>
                             <div class="mt-auto">
                                 <div class="btn-group w-100" role="group">
-                                    <button type="button" class="btn btn-outline-primary">Details</button>
-                                    <button type="button" class="btn btn-primary">Book Now</button>
+                                    <button type="button" class="btn btn-outline-danger">Details</button>
+                                    <button type="button" class="btn btn-danger">Book Now</button>
                                 </div>
                             </div>
                         </div>
@@ -214,8 +215,8 @@
                             <p class="card-text flex-grow-1">Experience our new seasonal menu featuring fresh, locally-sourced ingredients. Available for a limited time only.</p>
                             <div class="mt-auto">
                                 <div class="btn-group w-100" role="group">
-                                    <button type="button" class="btn btn-outline-primary">Details</button>
-                                    <button type="button" class="btn btn-primary">View Menu</button>
+                                    <button type="button" class="btn btn-outline-danger">Details</button>
+                                    <button type="button" class="btn btn-danger">Book Now</button>  
                                 </div>
                             </div>
                         </div>
@@ -230,10 +231,10 @@
             <h2 class="section-title text-center mb-5">Photo Gallery</h2>
             <div class="d-flex justify-content-center mb-4">
                 <div class="btn-group" role="group" aria-label="Gallery filters">
-                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
-                    <button type="button" class="btn btn-outline-primary" data-filter="food">Food</button>
-                    <button type="button" class="btn btn-outline-primary" data-filter="restaurant">Restaurant</button>
-                    <button type="button" class="btn btn-outline-primary" data-filter="events">Events</button>
+                    <button type="button" class="btn btn-outline-danger active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-danger" data-filter="food">Food</button>
+                    <button type="button" class="btn btn-outline-danger" data-filter="restaurant">Restaurant</button>
+                    <button type="button" class="btn btn-outline-danger" data-filter="events">Events</button>
                 </div>
             </div>
             
@@ -386,34 +387,8 @@
             </div>
         </div>
     </footer>
-
+    <button class="dark-mode-toggle btn btn-warning" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script>
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.btn-group .btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-        
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
-                    
-                    filterBtns.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-        
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="js/Gallery.js"></script>
 </body>
 </html>
