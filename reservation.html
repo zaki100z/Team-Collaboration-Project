@@ -6,7 +6,7 @@
     <title>Reservations - Gourmet Haven</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/reservation.css">
-     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -35,12 +35,16 @@
                     <li class="nav-item">
                         <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
                     </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+                            🌙
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
- 
     <section class="reservations-hero py-5">
         <div class="container py-5">
             <div class="row justify-content-center text-center">
@@ -51,26 +55,41 @@
             </div>
         </div>
     </section>
+    
     <section class="reservations-section py-5">
         <div class="container">
             <h2 class="section-title text-center mb-5">Book Your Table</h2>
+            <div id="successAlert" class="alert alert-success alert-dismissible fade success-alert" role="alert">
+                <strong>Thank you for your reservation request!</strong> We will confirm your booking shortly.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
             <div class="row g-4">
                 <div class="col-lg-8">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4 p-md-5">
-                            <form id="reservationForm">
+                            <form id="reservationForm" class="needs-validation" novalidate>
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Full Name</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid full name (at least 2 characters).
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="email" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email address.
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone" class="form-label">Phone Number</label>
                                         <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid phone number.
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="guests" class="form-label">Number of Guests</label>
@@ -84,10 +103,16 @@
                                             <option value="6">6 People</option>
                                             <option value="7">7+ People (Large Party)</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                            Please select the number of guests.
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="date" class="form-label">Date</label>
                                         <input type="date" class="form-control" id="date" name="date" required>
+                                        <div class="invalid-feedback">
+                                            Please select a valid date (today or in the future).
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="time" class="form-label">Time</label>
@@ -103,6 +128,9 @@
                                             <option value="20:00">8:00 PM</option>
                                             <option value="21:00">9:00 PM</option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                            Please select a time.
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <label for="special-requests" class="form-label">Special Requests (optional)</label>
@@ -120,7 +148,17 @@
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
-                            <h3 class="card-title mb-4">Reservation Details</h3>
+                            <h4 class="card-title mb-4">Reservation Details</h4>
+                            
+                        
+                            <div class="current-time-container">
+                                <div class="current-time-title">
+                                    Current Time
+                                </div>
+                                <div class="current-time" id="currentTime">Loading...</div>
+                                <div class="current-date" id="currentDate">Loading...</div>
+                            </div>
+                            
                             <div class="mb-4">
                                 <h4 class="h5 mb-3">Operating Hours</h4>
                                 <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
@@ -133,28 +171,86 @@
                                 <p>For groups of 7 or more, please call us directly at <strong>(555) 123-4567</strong> to make arrangements.</p>
                             </div>
                             
-                            <div class="mb-4">
-                                <h4 class="h5 mb-3">Special Occasions</h4>
-                                <p>Celebrating a special event? Let us know in your special requests and we'll make it memorable!</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
             
-
+            <!-- Updated Policy Section with Accordion -->
             <div class="row mt-5">
                 <div class="col-12">
-                    <div class="card border-0 bg-light">
+                    <div class="card border-0">
                         <div class="card-body p-4 p-md-5">
                             <h3 class="card-title mb-4">Reservation Policy</h3>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">• Reservations are held for 15 minutes past the reserved time.</li>
-                                <li class="mb-2">• For parties of 5 or more, a credit card may be required to secure your reservation.</li>
-                                <li class="mb-2">• 24-hour notice is required for cancellations to avoid a cancellation fee.</li>
-                                <li class="mb-2">• Dress code: Business casual. No beachwear or athletic attire please.</li>
-                            </ul>
-                            <p class="mb-0">For any questions about our reservation policy, please call us at <strong>(555) 123-4567</strong>.</p>
+                            <p class="mb-4">For any questions about our reservation policy, please call us at <strong>(555) 123-4567</strong>.</p>
+                            
+                            <div class="policy-accordion" id="policyAccordion">
+                                <div class="policy-accordion-item">
+                                    <h6 class="policy-accordion-header">
+                                        <button class="policy-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#policyOne" aria-expanded="true" aria-controls="policyOne">
+                                             Reservation Timing
+                                        </button>
+                                    </h6>
+                                    <div id="policyOne" class="policy-accordion-collapse collapse show" data-bs-parent="#policyAccordion">
+                                        <div class="policy-accordion-body">
+                                            Reservations are held for 15 minutes past the reserved time. Please call us if you're running late.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="policy-accordion-item">
+                                    <h6 class="policy-accordion-header">
+                                        <button class="policy-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policyTwo" aria-expanded="false" aria-controls="policyTwo">
+                                             Large Party Reservations
+                                        </button>
+                                    </h6>
+                                    <div id="policyTwo" class="policy-accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                        <div class="policy-accordion-body">
+                                            For parties of 5 or more, a credit card may be required to secure your reservation. This helps us manage our limited seating effectively.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="policy-accordion-item">
+                                    <h6 class="policy-accordion-header">
+                                        <button class="policy-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policyThree" aria-expanded="false" aria-controls="policyThree">
+                                             Cancellation Policy
+                                        </button>
+                                    </h6>
+                                    <div id="policyThree" class="policy-accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                        <div class="policy-accordion-body">
+                                            24-hour notice is required for cancellations to avoid a cancellation fee. For large parties (5+), cancellations within 12 hours may incur a fee of $25 per person.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="policy-accordion-item">
+                                    <h6 class="policy-accordion-header">
+                                        <button class="policy-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policyFour" aria-expanded="false" aria-controls="policyFour">
+                                             Dress Code
+                                        </button>
+                                    </h6>
+                                    <div id="policyFour" class="policy-accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                        <div class="policy-accordion-body">
+                                            Dress code: Business casual. No beachwear or athletic attire please. We reserve the right to refuse service to anyone not adhering to our dress code.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="policy-accordion-item">
+                                    <h6 class="policy-accordion-header">
+                                        <button class="policy-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#policyFive" aria-expanded="false" aria-controls="policyFive">
+                                            Special Occasions
+                                        </button>
+                                    </h6>
+                                    <div id="policyFive" class="policy-accordion-collapse collapse" data-bs-parent="#policyAccordion">
+                                        <div class="policy-accordion-body">
+                                            For birthdays, anniversaries, or other celebrations, please let us know in advance. We can arrange for special desserts or decorations (additional charges may apply).
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,7 +264,7 @@
                     <div class="row g-4">
                         <div class="col-md-6 col-lg-4">
                             <div class="card border-0 shadow-sm h-100">
-                                <img src="Images/event3.jpg" class="card-img-top"style="height: 200px; object-fit:cover;" alt="Corporate Events">
+                                <img src="images/event1.jpg" class="card-img-top" style="height: 200px; object-fit:cover;" alt="Corporate Events">
                                 <div class="card-body">
                                     <h3 class="card-title h5">Corporate Events</h3>
                                     <p class="card-text">Business dinners, client meetings, and company celebrations.</p>
@@ -177,7 +273,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="card border-0 shadow-sm h-100">
-                                <img src="Images/event2.jpg" class="card-img-top" style="height: 200px; object-fit:cover;" alt="Weddings & Receptions">
+                                <img src="images/resturant1.jpg" class="card-img-top" style="height: 200px; object-fit:cover;" alt="Weddings & Receptions">
                                 <div class="card-body">
                                     <h3 class="card-title h5">Weddings & Receptions</h3>
                                     <p class="card-text">Intimate wedding ceremonies and reception dinners.</p>
@@ -186,7 +282,7 @@
                         </div>
                         <div class="col-md-6 col-lg-4">
                             <div class="card border-0 shadow-sm h-100">
-                                <img src="Images/event7.jpg" class="card-img-top"style="height: 200px; object-fit:cover;" alt="Special Occasions">
+                                <img src="images/food3.jpg" class="card-img-top" style="height: 200px; object-fit:cover;" alt="Special Occasions">
                                 <div class="card-body">
                                     <h3 class="card-title h5">Special Occasions</h3>
                                     <p class="card-text">Birthdays, anniversaries, and other milestone celebrations.</p>
@@ -196,14 +292,16 @@
                     </div>
                     
                     <div class="text-center mt-5">
-                        <a href="typo.html" class="btn btn-primary btn-lg">Inquire About Private Events</a>
+                        <!-- Updated button to trigger modal -->
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#privateEventsModal">
+                            Inquire About Private Events
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
- 
     <footer class="bg-dark text-white py-5">
         <div class="container">
             <div class="row g-4">
@@ -240,17 +338,100 @@
         </div>
     </footer>
 
+    <!-- Private Events Modal -->
+    <div class="modal fade events-modal" id="privateEventsModal" tabindex="-1" aria-labelledby="privateEventsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4" id="privateEventsModalLabel">Private Events Inquiry</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-4">Please provide your details and event requirements. Our events team will contact you within 24 hours to discuss your special occasion.</p>
+                    
+                    <form id="privateEventsForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="eventName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="eventName" name="eventName" required>
+                                <div class="invalid-feedback">
+                                    Please provide your full name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventEmail" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="eventEmail" name="eventEmail" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventPhone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="eventPhone" name="eventPhone" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid phone number.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventType" class="form-label">Event Type *</label>
+                                <select class="form-select" id="eventType" name="eventType" required>
+                                    <option value="">Select event type</option>
+                                    <option value="corporate">Corporate Event</option>
+                                    <option value="wedding">Wedding/Reception</option>
+                                    <option value="birthday">Birthday Celebration</option>
+                                    <option value="anniversary">Anniversary</option>
+                                    <option value="holiday">Holiday Party</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select an event type.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventDate" class="form-label">Preferred Date *</label>
+                                <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+                                <div class="invalid-feedback">
+                                    Please select a date.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="eventGuests" class="form-label">Estimated Guests *</label>
+                                <select class="form-select" id="eventGuests" name="eventGuests" required>
+                                    <option value="">Select guest count</option>
+                                    <option value="10-25">10-25 Guests</option>
+                                    <option value="26-50">26-50 Guests</option>
+                                    <option value="51-75">51-75 Guests</option>
+                                    <option value="76-100">76-100 Guests</option>
+                                    <option value="100+">100+ Guests</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select guest count.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="eventDetails" class="form-label">Event Details & Special Requests</label>
+                                <textarea class="form-control" id="eventDetails" name="eventDetails" rows="4" placeholder="Tell us about your event, any specific requirements, dietary restrictions, etc."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="eventUpdates" name="eventUpdates">
+                                    <label class="form-check-label" for="eventUpdates">
+                                        I'd like to receive updates about special event packages and promotions
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitEventForm">Submit Inquiry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script>
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your reservation request! We will confirm your booking shortly.');
-            this.reset();
-        });
-        
-        // Set min date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date').setAttribute('min', today);
-    </script>
+    <script src="js/reservation.js"></script>
 </body>
 </html>
