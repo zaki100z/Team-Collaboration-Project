@@ -1,4 +1,4 @@
-// ===== Task 3: POPUP FORM =====
+// ===== POPUP FORM =====
 const popup = document.getElementById('popupForm');
 const openBtn = document.getElementById('openPopup');
 const closeBtn = document.getElementById('closePopup');
@@ -20,7 +20,7 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// ===== Task 1: FORM VALIDATION =====
+// ===== FORM VALIDATION =====
 const subscribeForm = document.getElementById('subscribeForm');
 
 subscribeForm.addEventListener('submit', function(e) {
@@ -47,7 +47,7 @@ subscribeForm.addEventListener('submit', function(e) {
     popup.style.display = 'none';
 });
 
-// ===== Task 2: ACCORDION =====
+// ===== ACCORDION =====
 const accHeaders = document.querySelectorAll('.accordion-header');
 
 accHeaders.forEach(header => {
@@ -63,7 +63,7 @@ accHeaders.forEach(header => {
     });
 });
 
-// ===== Task 4: CHANGE BACKGROUND COLOR =====
+// ===== CHANGE BACKGROUND COLOR =====
 const colorBtn = document.getElementById('colorBtn');
 
 colorBtn.addEventListener('click', () => {
@@ -72,7 +72,7 @@ colorBtn.addEventListener('click', () => {
     document.body.style.backgroundColor = randomColor;
 });
 
-// ===== Task 5: DISPLAY CURRENT DATE AND TIME =====
+// ===== DISPLAY CURRENT DATE AND TIME =====
 function updateDateTime() {
     const now = new Date();
     const options = { 
