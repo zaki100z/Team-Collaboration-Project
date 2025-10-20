@@ -178,3 +178,187 @@ body.dark-mode {
 .dark-mode-toggle:hover {
     transform: scale(1.1);
 }
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.dark-mode .card {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.dark-mode .bg-light {
+    background-color: #2d2d2d !important;
+}
+
+.dark-mode .navbar-dark {
+    background-color: #1a1a1a !important;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.dark-mode .form-control:focus,
+.dark-mode .form-select:focus {
+    background-color: #2d2d2d;
+    border-color: #0d6efd;
+    color: #e0e0e0;
+}
+
+/* Current Time Display */
+.current-time-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-time-title {
+    font-size: 0.9em;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.current-time {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.current-date {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* Success Alert Animation */
+.success-alert {
+    display: none;
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Policy Accordion */
+.policy-accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.policy-accordion-header {
+    margin: 0;
+}
+
+.policy-accordion-button {
+    width: 100%;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border: none;
+    text-align: left;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.policy-accordion-button:hover {
+    background: #e9ecef;
+}
+
+.policy-accordion-button:not(.collapsed) {
+    background: #e7f1ff;
+    color: #0c63e4;
+}
+
+.policy-accordion-body {
+    padding: 15px 20px;
+    background: white;
+    border-top: 1px solid #dee2e6;
+}
+
+.dark-mode .policy-accordion-body {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Form Input Animations */
+.form-control:focus,
+.form-select:focus {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Dark mode toggle in navbar */
+.navbar .dark-mode-toggle {
+    background: transparent;
+    border: 1px solid #6c757d;
+    color: #ffc107;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+/* Modal Styles */
+.events-modal .modal-content {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Add these to your existing gallery.css */
+.gallery-item {
+    transition: all 0.3s ease;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
