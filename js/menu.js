@@ -1,17 +1,69 @@
-// ===== POPUP FORM =====
+// ===== VARIABLES =====
 const popup = document.getElementById('popupForm');
 const openBtn = document.getElementById('openPopup');
 const closeBtn = document.getElementById('closePopup');
+const colorBtn = document.getElementById('colorBtn'); // Было использовано до объявления — исправлено
+const subscribeForm = document.getElementById('subscribeForm');
+const accHeaders = document.querySelectorAll('.accordion-header');
 
-// 🎵 Звук при открытии окна
+// 🎵 Звук при открытии popup
 const clickSound = new Audio('mixkit-camera-shutter-click-1133.wav');
 
+// ===== POPUP OPEN / CLOSE =====
 openBtn.addEventListener('click', () => {
     clickSound.play(); // проигрываем звук
     popup.style.display = 'flex'; // открываем popup
 });
 
-// 🌙 Переключение темы (Dark / Light)
+// Close popup by close button
+closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+});
+
+// Close popup by clicking outside popup content
+popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+        popup.style.display = 'none';
+    }
+});
+
+// ===== FORM VALIDATION =====
+subscribeForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value.trim();
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (email === '') {
+        alert('Email field is required!');
+        return;
+    }
+    
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address!');
+        return;
+    }
+    
+    alert('Thank you for subscribing!');
+    this.reset();
+    popup.style.display = 'none';
+});
+
+// ===== ACCORDION =====
+accHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        // Toggle display
+        if (body.style.display === 'block') {
+            body.style.display = 'none';
+        } else {
+            body.style.display = 'block';
+        }
+    });
+});
+
+// ===== CHANGE BACKGROUND COLOR / DARK MODE =====
 let darkMode = false;
 
 colorBtn.addEventListener('click', () => {
@@ -25,76 +77,6 @@ colorBtn.addEventListener('click', () => {
         document.body.style.color = '#333';
         colorBtn.textContent = 'Switch to Dark Theme';
     }
-});
-
-
-// Open popup
-openBtn.addEventListener('click', () => {
-    popup.style.display = 'flex';
-});
-
-// Close popup by close button
-closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-});
-
-// Close popup by clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target === popup) {
-        popup.style.display = 'none';
-    }
-});
-
-// ===== FORM VALIDATION =====
-const subscribeForm = document.getElementById('subscribeForm');
-
-subscribeForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('email').value.trim();
-    
-    // Email validation
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (email === '') {
-        alert('Email field is required!');
-        return;
-    }
-    
-    if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address!');
-        return;
-    }
-    
-    // Success
-    alert('Thank you for subscribing!');
-    this.reset();
-    popup.style.display = 'none';
-});
-
-// ===== ACCORDION =====
-const accHeaders = document.querySelectorAll('.accordion-header');
-
-accHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const body = header.nextElementSibling;
-        
-        // Toggle display
-        if (body.style.display === 'block') {
-            body.style.display = 'none';
-        } else {
-            body.style.display = 'block';
-        }
-    });
-});
-
-// ===== CHANGE BACKGROUND COLOR =====
-const colorBtn = document.getElementById('colorBtn');
-
-colorBtn.addEventListener('click', () => {
-    const colors = ['#FFD700', '#8B0000', '#006400', '#1E90FF', '#8A2BE2', '#F8F8F8'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = randomColor;
 });
 
 // ===== DISPLAY CURRENT DATE AND TIME =====

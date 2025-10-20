@@ -3,24 +3,24 @@ const popup = document.getElementById('popupForm');
 const openBtn = document.getElementById('popupBtn');
 const closeBtn = document.getElementById('closePopup');
 
-// Open popup
+// Открытие popup
 openBtn.addEventListener('click', () => {
     popup.style.display = 'flex';
 });
 
-// Close popup by close button
+// Закрытие popup по кнопке
 closeBtn.addEventListener('click', () => {
     popup.style.display = 'none';
 });
 
-// Close popup by clicking outside
+// Закрытие popup по клику вне окна
 window.addEventListener('click', (e) => {
     if (e.target === popup) {
         popup.style.display = 'none';
     }
 });
 
-// =====  FORM VALIDATION =====
+// ===== CONTACT FORM VALIDATION =====
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', function(e) {
@@ -30,35 +30,29 @@ contactForm.addEventListener('submit', function(e) {
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    // Email validation pattern
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Check if all fields are filled
     if (name === '' || email === '' || message === '') {
         alert('Please fill in all required fields!');
         return;
     }
 
-    // Validate email format
     if (!emailPattern.test(email)) {
         alert('Please enter a valid email address!');
         return;
     }
 
-    // Success
     alert('Thank you for your message! We will get back to you soon.');
     this.reset();
     popup.style.display = 'none';
 });
 
-// =====  ACCORDION =====
+// ===== ACCORDION (если есть на странице) =====
 const accHeaders = document.querySelectorAll('.accordion-header');
 
 accHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const body = header.nextElementSibling;
-        
-        // Toggle display
         if (body.style.display === 'block') {
             body.style.display = 'none';
         } else {
@@ -67,7 +61,7 @@ accHeaders.forEach(header => {
     });
 });
 
-// ===== CHANGE BACKGROUND COLOR =====
+// ===== CHANGE BACKGROUND COLOR (THEME) =====
 const colorBtn = document.getElementById('colorBtn');
 
 colorBtn.addEventListener('click', () => {
@@ -89,6 +83,6 @@ function updateDateTime() {
     document.getElementById('dateTime').textContent = now.toLocaleDateString('en-US', options);
 }
 
-// Update every second
+// Обновление каждую секунду
 setInterval(updateDateTime, 1000);
 updateDateTime();

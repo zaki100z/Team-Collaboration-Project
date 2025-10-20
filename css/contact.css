@@ -237,7 +237,7 @@ footer {
     text-decoration: none;
     
 }
-/* Popup */
+/* ===== Popup form color changes ===== */
 .popup {
     display: none;
     position: fixed;
@@ -246,18 +246,66 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.6); /* Полупрозрачный фон для затемнения страницы */
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .popup-content {
-    background: white;
+    background-color: #8B0000; /* Красный фон */
+    color: white; /* Белый текст */
     padding: 30px;
     border-radius: 8px;
     width: 400px;
     max-width: 90%;
     position: relative;
+    animation: popUp 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-content h3 {
+    color: white; /* Заголовок белый */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popup-content input[type="email"],
+.popup-content input[type="text"],
+.popup-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid white; /* Белая рамка */
+    border-radius: 5px;
+    font-size: 16px;
+    color: #222; /* Текст внутри input тёмный */
+    background-color: white; /* фон input белый */
+}
+
+.popup-content .btn {
+    background-color: white; /* Кнопка белая */
+    color: #8B0000; /* Текст кнопки красный */
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.popup-content .btn:hover {
+    background-color: #FFD700; /* Жёлтый при наведении */
+    color: #8B0000;
 }
 
 .close {
@@ -266,7 +314,10 @@ footer {
     right: 15px;
     font-size: 24px;
     cursor: pointer;
+    color: white; /* крестик белый */
 }
+
+
 
 /* Accordion */
 .accordion {
