@@ -3,6 +3,31 @@ const popup = document.getElementById('popupForm');
 const openBtn = document.getElementById('openPopup');
 const closeBtn = document.getElementById('closePopup');
 
+// 🎵 Звук при открытии окна
+const clickSound = new Audio('mixkit-camera-shutter-click-1133.wav');
+
+openBtn.addEventListener('click', () => {
+    clickSound.play(); // проигрываем звук
+    popup.style.display = 'flex'; // открываем popup
+});
+
+// 🌙 Переключение темы (Dark / Light)
+let darkMode = false;
+
+colorBtn.addEventListener('click', () => {
+    darkMode = !darkMode;
+    if (darkMode) {
+        document.body.style.backgroundColor = '#222';
+        document.body.style.color = 'white';
+        colorBtn.textContent = 'Switch to Light Theme';
+    } else {
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = '#333';
+        colorBtn.textContent = 'Switch to Dark Theme';
+    }
+});
+
+
 // Open popup
 openBtn.addEventListener('click', () => {
     popup.style.display = 'flex';
