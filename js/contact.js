@@ -1,28 +1,32 @@
-// ===== POPUP FORM =====
+// ===== VARIABLES =====
 const popup = document.getElementById('popupForm');
 const openBtn = document.getElementById('popupBtn');
 const closeBtn = document.getElementById('closePopup');
+const contactForm = document.getElementById('contactForm');
+const accHeaders = document.querySelectorAll('.accordion-header');
+const colorBtn = document.getElementById('colorBtn');
 
-// Открытие popup
+// 🎵 Звук при открытии popup
+const clickSound = new Audio('mixkit-camera-shutter-click-1133.wav');
+
+// ===== POPUP OPEN / CLOSE =====
 openBtn.addEventListener('click', () => {
+    clickSound.play();
     popup.style.display = 'flex';
 });
 
-// Закрытие popup по кнопке
 closeBtn.addEventListener('click', () => {
     popup.style.display = 'none';
 });
 
 // Закрытие popup по клику вне окна
-window.addEventListener('click', (e) => {
+popup.addEventListener('click', (e) => {
     if (e.target === popup) {
         popup.style.display = 'none';
     }
 });
 
 // ===== CONTACT FORM VALIDATION =====
-const contactForm = document.getElementById('contactForm');
-
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -47,27 +51,28 @@ contactForm.addEventListener('submit', function(e) {
     popup.style.display = 'none';
 });
 
-// ===== ACCORDION (если есть на странице) =====
-const accHeaders = document.querySelectorAll('.accordion-header');
-
+// ===== ACCORDION =====
 accHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const body = header.nextElementSibling;
-        if (body.style.display === 'block') {
-            body.style.display = 'none';
-        } else {
-            body.style.display = 'block';
-        }
+        body.style.display = body.style.display === 'block' ? 'none' : 'block';
     });
 });
 
-// ===== CHANGE BACKGROUND COLOR (THEME) =====
-const colorBtn = document.getElementById('colorBtn');
+// ===== DARK / LIGHT MODE =====
+let darkMode = false;
 
 colorBtn.addEventListener('click', () => {
-    const colors = ['#FFD700', '#8B0000', '#006400', '#1E90FF', '#8A2BE2', '#F8F8F8'];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = randomColor;
+    darkMode = !darkMode;
+    if (darkMode) {
+        document.body.style.backgroundColor = '#222';
+        document.body.style.color = 'white';
+        colorBtn.textContent = 'Switch to Light Theme';
+    } else {
+        document.body.style.backgroundColor = 'white';
+        document.body.style.color = '#333';
+        colorBtn.textContent = 'Switch to Dark Theme';
+    }
 });
 
 // ===== DISPLAY CURRENT DATE AND TIME =====
@@ -83,6 +88,5 @@ function updateDateTime() {
     document.getElementById('dateTime').textContent = now.toLocaleDateString('en-US', options);
 }
 
-// Обновление каждую секунду
 setInterval(updateDateTime, 1000);
 updateDateTime();
