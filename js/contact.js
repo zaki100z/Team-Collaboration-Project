@@ -1,32 +1,28 @@
-// ===== Подключаем jQuery, если еще не подключен =====
-// Убедись, что в HTML перед этим файлом есть:
-// <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 $(document).ready(function() {
 
-    // ===== POPUP FORM =====
+    // ===== ЗВУК КЛИКА (если есть тот же файл) =====
+    const clickSound = new Audio('mixkit-camera-shutter-click-1133.wav');
+    let darkMode = false;
+
+    // ===== POPUP =====
     const $popup = $('#popupForm');
     const $openBtn = $('#popupBtn');
     const $closeBtn = $('#closePopup');
 
     // Открытие popup
     $openBtn.on('click', function() {
-        $popup.fadeIn(200);
+        $popup.fadeIn(500);
+        clickSound.play();
     });
 
-    // Закрытие popup по кнопке
-    $closeBtn.on('click', function() {
-        $popup.fadeOut(200);
-    });
-
-    // Закрытие popup по клику вне окна
-    $popup.on('click', function(e) {
-        if (e.target === this) {
-            $popup.fadeOut(200);
+    // Закрытие popup по кнопке или клику вне
+    $closeBtn.add($popup).on('click', function(e) {
+        if (e.target.id === 'popupForm' || e.target.id === 'closePopup') {
+            $popup.fadeOut(500);
         }
     });
 
-    // ===== CONTACT FORM VALIDATION =====
+    // ===== ВАЛИДАЦИЯ ФОРМЫ =====
     $('#contactForm').on('submit', function(e) {
         e.preventDefault();
 
@@ -36,34 +32,50 @@ $(document).ready(function() {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (name === '' || email === '' || message === '') {
-            alert('Please fill in all required fields!');
+            $('<div class="popup-message">Please fill in all fields!</div>')
+                .appendTo('#popupForm .popup-content')
+                .fadeIn(300)
+                .delay(1500)
+                .fadeOut(300, function() { $(this).remove(); });
             return;
         }
 
         if (!emailPattern.test(email)) {
-            alert('Please enter a valid email address!');
+            $('<div class="popup-message">Please enter a valid email!</div>')
+                .appendTo('#popupForm .popup-content')
+                .fadeIn(300)
+                .delay(1500)
+                .fadeOut(300, function() { $(this).remove(); });
             return;
         }
 
-        alert('Thank you for your message! We will get back to you soon.');
+        $('<div class="popup-message">Message sent successfully!</div>')
+            .appendTo('#popupForm .popup-content')
+            .fadeIn(300)
+            .delay(1500)
+            .fadeOut(300, function() { $(this).remove(); });
+
         this.reset();
-        $popup.fadeOut(200);
+        $popup.fadeOut(500);
     });
 
-    // ===== ACCORDION =====
+    // ===== АККОРДЕОН =====
     $('.accordion-header').on('click', function() {
-        const $body = $(this).next('.accordion-body');
-        $body.slideToggle(200);
+        $(this).next('.accordion-body').slideToggle(300);
+        $(this).toggleClass('active');
     });
 
-    // ===== CHANGE BACKGROUND COLOR (THEME) =====
-    const colors = ['#FFD700', '#8B0000', '#006400', '#1E90FF', '#8A2BE2', '#F8F8F8'];
+    // ===== ИЗМЕНЕНИЕ ЦВЕТА / ТЕМЫ =====
     $('#colorBtn').on('click', function() {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        $('body').css('background-color', randomColor);
+        $('body').animate(
+            { backgroundColor: darkMode ? '#F8F8F8' : '#222', color: darkMode ? '#333' : 'white' },
+            500
+        );
+        darkMode = !darkMode;
+        $(this).text(darkMode ? 'Change Theme' : 'Switch to Light Theme');
     });
 
-    // ===== DISPLAY CURRENT DATE AND TIME =====
+    // ===== ДАТА И ВРЕМЯ =====
     function updateDateTime() {
         const now = new Date();
         const options = { 
@@ -76,6 +88,25 @@ $(document).ready(function() {
         $('#dateTime').text(now.toLocaleDateString('en-US', options));
     }
 
-    setInterval(updateDateTime, 1000);
+    setInterval(function() {
+        $('#dateTime').fadeOut(500).fadeIn(500);
+        updateDateTime();
+    }, 1000);
     updateDateTime();
+
+    // ===== ХОВЕР ЭФФЕКТЫ (анимация при наведении) =====
+    $('button, .accordion-header, a, input, textarea').hover(
+        function() {
+            $(this).css({
+                transform: 'scale(1.05)',
+                transition: 'transform 0.2s ease'
+            });
+        },
+        function() {
+            $(this).css({
+                transform: 'scale(1)',
+                transition: 'transform 0.2s ease'
+            });
+        }
+    );
 });
