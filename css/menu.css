@@ -44,6 +44,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
 /* Menu Hero Section */
 .menu-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 

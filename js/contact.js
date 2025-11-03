@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== INITIALIZATION ==========
-    
+
     function init() {
         initializeTheme();
         setupThemeToggles();
