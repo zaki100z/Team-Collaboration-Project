@@ -9,10 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== DARK MODE WITH LOCAL STORAGE ==========
     
-    // Check for saved theme preference or respect OS preference
+    // Initialize theme from localStorage or system preference
     function initializeTheme() {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        console.log('Initializing theme...');
+        console.log('Saved theme:', savedTheme);
+        console.log('Prefers dark:', prefersDark);
         
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             enableDarkMode();
@@ -22,31 +26,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function enableDarkMode() {
+        console.log('Enabling dark mode');
         body.classList.add('dark-mode');
         localStorage.setItem('theme', 'dark');
         updateToggleButtons('☀️', 'Switch to Light Mode');
+        
+        // Add animation class for smooth transition
+        body.style.transition = 'all 0.3s ease';
+        
+        console.log('Dark mode enabled. Body classes:', body.classList.toString());
     }
 
     function disableDarkMode() {
+        console.log('Disabling dark mode');
         body.classList.remove('dark-mode');
         localStorage.setItem('theme', 'light');
         updateToggleButtons('🌙', 'Switch to Dark Mode');
+        
+        // Add animation class for smooth transition
+        body.style.transition = 'all 0.3s ease';
+        
+        console.log('Dark mode disabled. Body classes:', body.classList.toString());
     }
 
     function updateToggleButtons(icon, text) {
         if (darkModeToggle) {
             darkModeToggle.textContent = icon;
             darkModeToggle.title = text;
+            console.log('Updated darkModeToggle:', icon, text);
         }
         if (themeToggle) {
             themeToggle.textContent = text;
+            console.log('Updated themeToggle:', text);
         }
     }
 
     // Theme toggle functionality
     function setupThemeToggles() {
+        // Toggle from navbar button
         if (darkModeToggle) {
-            darkModeToggle.addEventListener('click', function() {
+            darkModeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Navbar toggle clicked');
+                
                 if (body.classList.contains('dark-mode')) {
                     disableDarkMode();
                 } else {
@@ -56,8 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Toggle from main button
         if (themeToggle) {
-            themeToggle.addEventListener('click', function() {
+            themeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Main toggle clicked');
+                
                 if (body.classList.contains('dark-mode')) {
                     disableDarkMode();
                 } else {
@@ -66,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 playSound('toggle');
             });
         }
+
+        console.log('Theme toggles setup complete');
     }
 
     // ========== FORM VALIDATION AND SUBMISSION ==========
@@ -74,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (subscribeForm) {
             subscribeForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                console.log('Subscribe form submitted');
                 
                 const emailInput = document.getElementById('subscribeEmail');
                 const email = emailInput.value.trim();
@@ -104,6 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (this.classList.contains('is-invalid')) {
                         this.classList.remove('is-invalid');
                     }
+                    
+                    // Real-time email validation
+                    if (this.value && isValidEmail(this.value)) {
+                        this.classList.add('is-valid');
+                    } else {
+                        this.classList.remove('is-valid');
+                    }
                 });
             }
         }
@@ -121,7 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
-                second: '2-digit'
+                second: '2-digit',
+                timeZoneName: 'short'
             };
             dateTimeElement.textContent = now.toLocaleDateString('en-US', options);
         }
@@ -132,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupMenuInteractivity() {
         // Add hover effects to menu cards
         const menuCards = document.querySelectorAll('.card');
-        menuCards.forEach(card => {
+        menuCards.forEach((card, index) => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-8px)';
                 this.style.boxShadow = '0 12px 30px var(--shadow-color)';
@@ -140,7 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 4px 15px var(--shadow-color)';
+                this.style.boxShadow = '';
+            });
+
+            // Add click event for menu items
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.card-title').textContent;
+                const price = this.querySelector('.text-primary').textContent;
+                showNotification(`Added ${title} ${price} to cart!`, 'info');
+                playSound('click');
             });
         });
 
@@ -152,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.title = 'Dietary Information';
             });
         });
+
+        console.log('Menu interactivity setup complete');
     }
 
     // ========== ADVANCED JAVASCRIPT CONCEPTS ==========
@@ -159,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Objects and Methods for Menu Management
     const menuManager = {
         subscriptions: JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [],
+        cart: JSON.parse(localStorage.getItem('menuCart')) || [],
         userPreferences: JSON.parse(localStorage.getItem('userPreferences')) || { theme: 'light' },
         
         addSubscription: function(email) {
@@ -169,6 +217,13 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             this.subscriptions.push(subscription);
             localStorage.setItem('newsletterSubscriptions', JSON.stringify(this.subscriptions));
+            console.log('Subscription added:', email);
+        },
+        
+        addToCart: function(item) {
+            this.cart.push(item);
+            localStorage.setItem('menuCart', JSON.stringify(this.cart));
+            console.log('Item added to cart:', item);
         },
         
         generateId: function() {
@@ -177,6 +232,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         getSubscriptionCount: function() {
             return this.subscriptions.length;
+        },
+        
+        getCartTotal: function() {
+            return this.cart.reduce((total, item) => total + (item.price || 0), 0);
         },
         
         // Higher-order function for filtering
@@ -189,32 +248,33 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Arrays and Higher-Order Functions
-    const menuCategories = ['Appetizers', 'Main Courses', 'Desserts', 'Beverages'];
+    const menuCategories = ['Appetizers', 'Main Courses', 'Desserts'];
     
     // Using map to create category statistics
-    const categoryStats = menuCategories.map(category => {
-        const items = document.querySelectorAll(`.menu-category:contains("${category}") .card`);
-        return {
-            category: category,
-            itemCount: items.length,
-            averagePrice: calculateAveragePrice(items)
-        };
-    });
-
-    function calculateAveragePrice(items) {
-        if (items.length === 0) return 0;
-        
-        const prices = Array.from(items).map(item => {
-            const priceElement = item.querySelector('.text-primary');
-            if (priceElement) {
-                const priceText = priceElement.textContent.replace('$', '');
-                return parseFloat(priceText) || 0;
-            }
-            return 0;
+    const getCategoryStats = () => {
+        return menuCategories.map(category => {
+            const items = document.querySelectorAll(`.menu-category h2:contains("${category}")`);
+            const itemCount = items.length > 0 ? items[0].closest('.menu-category').querySelectorAll('.card').length : 0;
+            
+            return {
+                category: category,
+                itemCount: itemCount,
+                hasVegetarian: hasVegetarianOptions(category)
+            };
         });
+    };
+
+    function hasVegetarianOptions(category) {
+        const categoryElement = Array.from(document.querySelectorAll('.menu-category h2'))
+            .find(h2 => h2.textContent.includes(category));
         
-        const total = prices.reduce((sum, price) => sum + price, 0);
-        return (total / prices.length).toFixed(2);
+        if (categoryElement) {
+            const cards = categoryElement.closest('.menu-category').querySelectorAll('.card');
+            return Array.from(cards).some(card => 
+                card.querySelector('.text-muted')?.textContent.includes('Vegetarian')
+            );
+        }
+        return false;
     }
 
     // ========== SWITCH STATEMENTS ==========
@@ -225,19 +285,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         switch(true) {
             case hour < 11:
-                recommendation = "Try our breakfast specials!";
+                recommendation = "🌅 Try our breakfast specials! Perfect start to your day.";
                 break;
             case hour < 15:
-                recommendation = "Perfect time for our lunch menu!";
+                recommendation = "🌞 Perfect time for our lunch menu! Fresh and satisfying.";
                 break;
             case hour < 18:
-                recommendation = "Afternoon tea and light bites available!";
+                recommendation = "☕ Afternoon tea and light bites available!";
                 break;
             case hour < 22:
-                recommendation = "Enjoy our dinner specialties!";
+                recommendation = "🌙 Enjoy our dinner specialties! Romantic ambiance.";
                 break;
             default:
-                recommendation = "Late night desserts and drinks!";
+                recommendation = "🌜 Late night desserts and drinks! Cozy atmosphere.";
         }
         
         return recommendation;
@@ -247,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayRecommendation() {
         const recommendation = getMenuRecommendation();
         const recommendationElement = document.createElement('div');
-        recommendationElement.className = 'alert alert-info text-center mt-3';
+        recommendationElement.className = 'alert alert-info text-center mt-3 fade-in-up';
         recommendationElement.innerHTML = `
             <i class="fas fa-utensils me-2"></i>
             ${recommendation}
@@ -257,6 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroSection) {
             heroSection.appendChild(recommendationElement);
         }
+        
+        console.log('Menu recommendation displayed:', recommendation);
     }
 
     // ========== EVENT HANDLING ==========
@@ -266,6 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Alt + D to toggle dark mode
         if (e.altKey && e.key === 'd') {
             e.preventDefault();
+            console.log('Keyboard shortcut: Alt+D pressed');
             if (body.classList.contains('dark-mode')) {
                 disableDarkMode();
             } else {
@@ -279,15 +342,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const modals = document.querySelectorAll('.modal.show');
             modals.forEach(modal => {
                 const modalInstance = bootstrap.Modal.getInstance(modal);
-                if (modalInstance) modalInstance.hide();
+                if (modalInstance) {
+                    modalInstance.hide();
+                    console.log('Modal closed with Escape key');
+                }
             });
+        }
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                enableDarkMode();
+            } else {
+                disableDarkMode();
+            }
         }
     });
 
     // ========== SOUND EFFECTS ==========
     
     function playSound(type) {
-        // Simple sound effects using Web Audio API
         try {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioContext.createOscillator();
@@ -298,17 +374,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             switch(type) {
                 case 'success':
+                    // Success sound (ascending tone)
                     oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
                     oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1);
                     oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2);
                     break;
                 case 'error':
+                    // Error sound (descending tone)
                     oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime);
                     oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1);
                     oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime + 0.2);
                     break;
                 case 'toggle':
+                    // Toggle sound
                     oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+                    break;
+                case 'click':
+                    // Click sound
+                    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
                     break;
             }
             
@@ -318,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.3);
         } catch (error) {
-            console.log('Audio context not supported');
+            console.log('Audio context not supported:', error);
         }
     }
 
@@ -331,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function storeSubscription(email) {
         menuManager.addSubscription(email);
-        console.log('Subscription stored for:', email);
+        console.log('Total subscriptions:', menuManager.getSubscriptionCount());
     }
 
     function showNotification(message, type) {
@@ -380,19 +463,29 @@ document.addEventListener('DOMContentLoaded', function() {
             
             .custom-notification {
                 box-shadow: 0 4px 15px var(--shadow-color);
+                border: none;
             }
             
-            .card {
-                transition: all 0.3s ease;
+            .fade-in-up {
+                animation: fadeInUp 0.6s ease-out;
+            }
+            
+            /* Smooth transitions for all theme changes */
+            body * {
+                transition: background-color 0.3s ease, 
+                           color 0.3s ease, 
+                           border-color 0.3s ease,
+                           box-shadow 0.3s ease !important;
             }
         `;
         document.head.appendChild(style);
     }
 
-    
     // ========== INITIALIZATION ==========
     
     function init() {
+        console.log('Initializing menu page...');
+        
         initializeTheme();
         setupThemeToggles();
         setupSubscribeForm();
@@ -404,9 +497,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateDateTime();
         setInterval(updateDateTime, 1000);
         
-        console.log('Menu page initialized successfully');
-        console.log('Menu categories statistics:', categoryStats);
+        // Log initialization details
+        const stats = getCategoryStats();
+        console.log('Menu categories statistics:', stats);
         console.log('Total subscriptions:', menuManager.getSubscriptionCount());
+        console.log('Current theme:', localStorage.getItem('theme'));
+        console.log('Body classes:', body.classList.toString());
+        
+        console.log('Menu page initialized successfully!');
     }
 
     // Start the application

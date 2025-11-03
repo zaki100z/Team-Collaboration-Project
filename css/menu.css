@@ -44,7 +44,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 /* Menu Hero Section */
 .menu-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
@@ -55,17 +54,28 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+    min-height: 60vh;
 }
 
 /* Section Titles */
 .section-title, .category-title {
     color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.dark-mode .section-title,
+.dark-mode .category-title {
+    color: var(--secondary-color);
 }
 
 .category-title {
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
     display: inline-block;
+}
+
+.dark-mode .category-title {
+    border-bottom-color: var(--secondary-color);
 }
 
 /* Card Styles */
@@ -84,28 +94,37 @@ body {
 .card-img-top {
     height: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
 }
 
 /* Button Styles */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: #A52A2A;
     border-color: #A52A2A;
+    transform: translateY(-2px);
 }
 
 .btn-outline-primary {
     color: var(--primary-color);
     border-color: var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 .btn-outline-primary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
+    transform: translateY(-2px);
 }
 
 /* Navbar */
@@ -121,17 +140,19 @@ footer {
 }
 
 /* Form Styles */
-.form-control {
+.form-control, .form-select {
     background-color: var(--input-bg);
     color: var(--input-text);
     border-color: var(--card-border);
+    transition: all 0.3s ease;
 }
 
-.form-control:focus {
+.form-control:focus, .form-select:focus {
     background-color: var(--input-bg);
     color: var(--input-text);
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.25);
+    transform: scale(1.02);
 }
 
 /* Accordion */
@@ -139,6 +160,7 @@ footer {
     background-color: var(--card-bg);
     color: var(--text-color);
     border-color: var(--card-border);
+    transition: all 0.3s ease;
 }
 
 .accordion-button:not(.collapsed) {
@@ -161,6 +183,53 @@ footer {
     transform: scale(1.1);
 }
 
+/* Background Sections */
+.bg-light {
+    background-color: var(--light-bg) !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Text colors that need to change in dark mode */
+.dark-mode .text-primary {
+    color: var(--secondary-color) !important;
+}
+
+.dark-mode .text-muted {
+    color: #aaa !important;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--card-border);
+    transition: border-color 0.3s ease;
+}
+
+/* Link styles */
+footer a {
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Price styling */
+.card .text-primary.fw-bold {
+    transition: color 0.3s ease;
+}
+
+.dark-mode .card .text-primary.fw-bold {
+    color: var(--secondary-color) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-hero h1 {
@@ -174,9 +243,75 @@ footer {
     .category-title {
         font-size: 1.5rem;
     }
+    
+    .menu-hero {
+        min-height: 50vh;
+    }
 }
 
-/* Animation for theme transition */
+/* Animation for smooth transitions */
 * {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease !important;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Success and error states for forms */
+.is-valid {
+    border-color: #198754 !important;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875em;
+}
+
+/* Ensure all text elements inherit the theme colors */
+h1, h2, h3, h4, h5, h6, p, span, div, li, a {
+    transition: color 0.3s ease;
+}
+
+/* Specific dark mode overrides for better contrast */
+.dark-mode .card-body {
+    background-color: var(--card-bg);
+}
+
+.dark-mode .accordion-item {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+}
+
+/* Hover effects for interactive elements */
+.card {
+    cursor: pointer;
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
 }
