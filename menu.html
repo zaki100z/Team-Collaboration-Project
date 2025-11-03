@@ -4,232 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Gourmet Haven</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <nav>
-                <div class="logo">Gourmet Haven</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+            <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="dark-mode-toggle btn btn-outline-warning ms-2" id="darkModeToggle" title="Toggle Dark Mode">
+                            🌙
+                        </button>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
-    
-    <section class="menu-hero">
-        <div class="container">
-            <h1>Our Menu</h1>
-            <p>Carefully crafted dishes made with the finest ingredients</p>
-            <button id="openPopup" class="btn">Subscribe for Updates</button>
-        </div>
-    </section>
+    </nav>
 
-    <section class="menu-section">
-        <div class="container">
-            <!-- Твоё меню полностью сохранено -->
-            <div class="menu-category">
-                <h2 class="category-title">Appetizers</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/bruschetta.jpg" alt="Bruschetta"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Bruschetta</span>
-                                <span class="item-price">$9</span>
-                            </div>
-                            <p class="item-desc">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
-                            <p class="dietary-info">Vegetarian</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/grilled-salmon.jpg" alt="Calamari"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Calamari</span>
-                                <span class="item-price">$12</span>
-                            </div>
-                            <p class="item-desc">Crispy fried squid served with marinara sauce</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/pile-of-fried-calamari.jpg" alt="Stuffed Mushrooms"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Stuffed Mushrooms</span>
-                                <span class="item-price">$11</span>
-                            </div>
-                            <p class="item-desc">Mushroom caps filled with herbed cream cheese</p>
-                            <p class="dietary-info">Vegetarian</p>
-                        </div>
-                    </div>
+    <section class="menu-hero py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Our Menu</h1>
+                    <p class="lead">Carefully crafted dishes made with the finest ingredients</p>
+                    <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+                        Subscribe for Updates
+                    </button>
                 </div>
             </div>
-
-            <div class="menu-category">
-                <h2 class="category-title">Main Courses</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/beef-wellington.jpg" alt="Grilled Salmon"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Grilled Salmon</span>
-                                <span class="item-price">$24</span>
-                            </div>
-                            <p class="item-desc">Fresh salmon with lemon butter sauce and seasonal vegetables</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/molten-lava-cake-17.jpg" alt="Beef Wellington"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Beef Wellington</span>
-                                <span class="item-price">$32</span>
-                            </div>
-                            <p class="item-desc">Beef tenderloin wrapped in puff pastry with mushroom duxelles</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/Classic-Creme-Brulee-1.jpg" alt="Vegetable Risotto"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Vegetable Risotto</span>
-                                <span class="item-price">$18</span>
-                            </div>
-                            <p class="item-desc">Creamy Arborio rice with seasonal vegetables and Parmesan</p>
-                            <p class="dietary-info">Vegetarian</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category">
-                <h2 class="category-title">Desserts</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/grilled-lemon-butter-salmon-9smb-7.jpg" alt="Tiramisu"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Tiramisu</span>
-                                <span class="item-price">$8</span>
-                            </div>
-                            <p class="item-desc">Classic Italian dessert with coffee-soaked ladyfingers</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/pile-of-fried-calamari.jpg" alt="Chocolate Lava Cake"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Chocolate Lava Cake</span>
-                                <span class="item-price">$9</span>
-                            </div>
-                            <p class="item-desc">Warm chocolate cake with a molten center, served with vanilla ice cream</p>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-img"><img src="images/10-ingred-30-minute-CREAMY-Vegetable-Risotto-Flavorful-22cheesy22-SO-delicious-vegan-glutenfree-risotto-plantbased-minimalistbaker-6.jpg" alt="Crème Brûlée"></div>
-                        <div class="item-info">
-                            <div class="item-header">
-                                <span class="item-title">Crème Brûlée</span>
-                                <span class="item-price">$8</span>
-                            </div>
-                            <p class="item-desc">Rich custard topped with a layer of hardened caramelized sugar</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-download">
-                <a href="pdf/menu.pdf" class="btn" download>Download Full Menu (PDF)</a>
-            </div>
-
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section">
+    <section class="menu-section py-5">
         <div class="container">
-            <h2 class="section-title">Menu FAQs</h2>
-            <div class="accordion">
+            <!-- Appetizers -->
+            <div class="menu-category mb-5">
+                <h2 class="category-title text-center mb-4">Appetizers</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/bruschetta.jpg" class="card-img-top" alt="Bruschetta" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Bruschetta</h5>
+                                    <span class="text-primary fw-bold">$9</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
+                                <small class="text-muted">Vegetarian</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/grilled-salmon.jpg" class="card-img-top" alt="Calamari" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Calamari</h5>
+                                    <span class="text-primary fw-bold">$12</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Crispy fried squid served with marinara sauce</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/pile-of-fried-calamari.jpg" class="card-img-top" alt="Stuffed Mushrooms" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Stuffed Mushrooms</h5>
+                                    <span class="text-primary fw-bold">$11</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Mushroom caps filled with herbed cream cheese</p>
+                                <small class="text-muted">Vegetarian</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Courses -->
+            <div class="menu-category mb-5">
+                <h2 class="category-title text-center mb-4">Main Courses</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/beef-wellington.jpg" class="card-img-top" alt="Grilled Salmon" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Grilled Salmon</h5>
+                                    <span class="text-primary fw-bold">$24</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Fresh salmon with lemon butter sauce and seasonal vegetables</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/molten-lava-cake-17.jpg" class="card-img-top" alt="Beef Wellington" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Beef Wellington</h5>
+                                    <span class="text-primary fw-bold">$32</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Beef tenderloin wrapped in puff pastry with mushroom duxelles</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/Classic-Creme-Brulee-1.jpg" class="card-img-top" alt="Vegetable Risotto" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Vegetable Risotto</h5>
+                                    <span class="text-primary fw-bold">$18</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Creamy Arborio rice with seasonal vegetables and Parmesan</p>
+                                <small class="text-muted">Vegetarian</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-category mb-5">
+                <h2 class="category-title text-center mb-4">Desserts</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/grilled-lemon-butter-salmon-9smb-7.jpg" class="card-img-top" alt="Tiramisu" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Tiramisu</h5>
+                                    <span class="text-primary fw-bold">$8</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Classic Italian dessert with coffee-soaked ladyfingers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/pile-of-fried-calamari.jpg" class="card-img-top" alt="Chocolate Lava Cake" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Chocolate Lava Cake</h5>
+                                    <span class="text-primary fw-bold">$9</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Warm chocolate cake with a molten center, served with vanilla ice cream</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="images/10-ingred-30-minute-CREAMY-Vegetable-Risotto-Flavorful-22cheesy22-SO-delicious-vegan-glutenfree-risotto-plantbased-minimalistbaker-6.jpg" class="card-img-top" alt="Crème Brûlée" style="height: 200px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title">Crème Brûlée</h5>
+                                    <span class="text-primary fw-bold">$8</span>
+                                </div>
+                                <p class="card-text flex-grow-1">Rich custard topped with a layer of hardened caramelized sugar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="pdf/menu.pdf" class="btn btn-primary btn-lg" download>
+                    Download Full Menu (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Menu FAQs</h2>
+            <div class="accordion" id="menuAccordion">
                 <div class="accordion-item">
-                    <button class="accordion-header">Are all dishes freshly made?</button>
-                    <div class="accordion-body">Yes, every dish is prepared fresh when ordered.</div>
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+                            Are all dishes freshly made?
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#menuAccordion">
+                        <div class="accordion-body">
+                            Yes, every dish is prepared fresh when ordered using the highest quality ingredients.
+                        </div>
+                    </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Do you offer gluten-free options?</button>
-                    <div class="accordion-body">Yes, many of our dishes can be made gluten-free upon request.</div>
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                            Do you offer gluten-free options?
+                        </button>
+                    </h2>
+                    <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
+                        <div class="accordion-body">
+                            Yes, many of our dishes can be made gluten-free upon request. Please inform your server about any dietary restrictions.
+                        </div>
+                    </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-header">Can I customize ingredients?</button>
-                    <div class="accordion-body">We can adapt meals to your preferences whenever possible.</div>
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
+                            Can I customize ingredients?
+                        </button>
+                    </h2>
+                    <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#menuAccordion">
+                        <div class="accordion-body">
+                            We can adapt meals to your preferences whenever possible. Additional charges may apply for substitutions.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Button to change background -->
-    <section class="color-section">
-        <div class="container">
-            <button id="colorBtn" class="btn">Change Theme</button>
+    <!-- Theme Toggle Section -->
+    <section class="theme-section py-5">
+        <div class="container text-center">
+            <button class="btn btn-outline-primary btn-lg" id="themeToggle">
+                Toggle Dark/Light Mode
+            </button>
         </div>
     </section>
 
-    <!-- Popup form -->
-    <div id="popupForm" class="popup">
-        <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <h3>Subscribe to Our Newsletter</h3>
-            <form id="subscribeForm">
-                <div class="form-group">
-                    <label for="email">Enter your email:</label>
-                    <input type="email" id="email" placeholder="you@example.com" required>
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Hours</h3>
+                    <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
+                    <p class="mb-1">Friday - Saturday: 11am - 11pm</p>
+                    <p class="mb-0">Sunday: 12pm - 9pm</p>
                 </div>
-                <button type="submit" class="btn">Subscribe</button>
-            </form>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <p class="mb-1">123 Culinary Street</p>
+                    <p class="mb-1">Foodville, FH 54321</p>
+                    <p class="mb-0">(555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Follow Us</h3>
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <a href="https://www.facebook.com" class="text-white text-decoration-none me-3">Facebook</a>
+                        <span class="text-white">|</span>
+                        <a href="https://www.twitter.com" class="text-white text-decoration-none mx-3">Twitter</a>
+                        <span class="text-white">|</span>
+                        <a href="https://www.Instagram.com" class="text-white text-decoration-none ms-3">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1" id="dateTime"></p>
+                    <p class="mb-1">&copy; 2025 Gourmet Haven. All rights reserved.</p>
+                    <p class="mb-0">Developed by: KhMatygul Khaisar</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subscribe Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Subscribe to Our Newsletter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="subscribeForm" novalidate>
+                        <div class="mb-3">
+                            <label for="subscribeEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="subscribeEmail" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Hours</h3>
-                    <p>Monday - Thursday: 11am - 10pm</p>
-                    <p>Friday - Saturday: 11am - 11pm</p>
-                    <p>Sunday: 12pm - 9pm</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>123 Culinary Street</p>
-                    <p>Foodville, FH 54321</p>
-                    <p>(555) 123-4567</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="footer-section-links">
-                        <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <hr class="footer-section-hr">
-            <p id="dateTime"></p>
-            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
-            <p>Team Members: Matygul Khaisar</p>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/menu.js"></script>
 </body>
 </html>

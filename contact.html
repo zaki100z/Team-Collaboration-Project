@@ -4,92 +4,320 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Gourmet Haven</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <nav>
-                <div class="logo">Gourmet Haven</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="reservation.html" class="btn">Reservations</a></li>
+            <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="dark-mode-toggle btn btn-outline-warning ms-2" id="darkModeToggle" title="Toggle Dark Mode">
+                            🌙
+                        </button>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="contact-hero">
-        <div class="container">
-            <h1>Get in Touch</h1>
-            <p>We'd love to hear from you</p>
-            <button id="popupBtn" class="btn">Open Contact Form</button>
-        </div>
-    </section>
-
-    <!-- Всплывающая форма -->
-    <div id="popupForm" class="popup">
-        <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <h3>Send Us a Message</h3>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea id="message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Аккордеон -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">How can I make a reservation?</button>
-                    <div class="accordion-body">You can book a table directly on our website or call our number.</div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">Do you offer vegetarian options?</button>
-                    <div class="accordion-body">Yes! We have a variety of vegetarian and vegan dishes.</div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">Can I host a private event?</button>
-                    <div class="accordion-body">Yes, we have private dining spaces available for booking.</div>
+    <section class="contact-hero py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Get in Touch</h1>
+                    <p class="lead">We'd love to hear from you. Reach out for reservations, events, or any questions.</p>
+                    <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <i class="fas fa-envelope me-2"></i>Send us a Message
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="color-section">
+    <section class="contact-info py-5 bg-light">
         <div class="container">
-            <button id="colorBtn" class="btn">Change Background Color</button>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="info-card card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                            <h3>Visit Us</h3>
+                            <p class="mb-1">123 Culinary Street</p>
+                            <p class="mb-0">Foodville, FH 54321</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="info-card card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                            <h3>Call Us</h3>
+                            <p class="mb-1">(555) 123-4567</p>
+                            <p class="mb-0">Mon-Sun: 11am-10pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="info-card card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                            <h3>Email Us</h3>
+                            <p class="mb-1">info@gourmethaven.com</p>
+                            <p class="mb-0">events@gourmethaven.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <section class="contact-form-section py-5">
         <div class="container">
-            <p id="dateTime"></p>
-            <p>&copy; 2025 Gourmet Haven. All rights reserved.</p>
-            <p>Team Members: Matygul Khaisar</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title text-center mb-5">Send us a Message</h2>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="mainContactForm" class="needs-validation" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="fullName" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                                        <div class="invalid-feedback">Please provide your full name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactEmail" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="contactEmail" name="contactEmail" required>
+                                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contactPhone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="contactPhone" name="contactPhone">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="subject" class="form-label">Subject *</label>
+                                        <select class="form-select" id="subject" name="subject" required>
+                                            <option value="">Choose a subject...</option>
+                                            <option value="reservation">Reservation Inquiry</option>
+                                            <option value="event">Private Event</option>
+                                            <option value="feedback">Feedback</option>
+                                            <option value="complaint">Complaint</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select a subject.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message *</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                        <div class="invalid-feedback">Please provide your message.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                Subscribe to our newsletter for updates and special offers
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Frequently Asked Questions</h2>
+            <div class="accordion" id="contactAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+                            How can I make a reservation?
+                        </button>
+                    </h2>
+                    <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#contactAccordion">
+                        <div class="accordion-body">
+                            You can book a table directly through our website using the reservation system, 
+                            call us at (555) 123-4567, or visit us in person. We recommend booking in advance 
+                            for weekends and special occasions.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+                            Do you offer vegetarian and vegan options?
+                        </button>
+                    </h2>
+                    <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#contactAccordion">
+                        <div class="accordion-body">
+                            Yes! We have a variety of vegetarian and vegan dishes. Our chefs can also customize 
+                            many of our regular menu items to accommodate dietary restrictions. Please inform 
+                            your server about any dietary needs.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
+                            Can I host a private event at your restaurant?
+                        </button>
+                    </h2>
+                    <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#contactAccordion">
+                        <div class="accordion-body">
+                            Absolutely! We have private dining spaces available for events ranging from 
+                            corporate meetings to wedding receptions. Contact our events team through 
+                            the form above or call us for customized event packages.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour">
+                            What are your parking facilities?
+                        </button>
+                    </h2>
+                    <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#contactAccordion">
+                        <div class="accordion-body">
+                            We offer complimentary valet parking for all our guests. There is also street 
+                            parking available nearby and a public parking garage two blocks away. 
+                            Valet service is available during all operating hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Find Us</h2>
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <div class="map-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
+                        <div class="text-center">
+                            <i class="fas fa-map fa-3x text-muted mb-3"></i>
+                            <h4>Interactive Map</h4>
+                            <p class="text-muted">123 Culinary Street, Foodville, FH 54321</p>
+                            <button class="btn btn-primary mt-2" onclick="openDirections()">
+                                <i class="fas fa-directions me-2"></i>Get Directions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Toggle Section -->
+    <section class="theme-section py-5">
+        <div class="container text-center">
+            <button class="btn btn-outline-primary btn-lg" id="themeToggle">
+                Toggle Dark/Light Mode
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Hours</h3>
+                    <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
+                    <p class="mb-1">Friday - Saturday: 11am - 11pm</p>
+                    <p class="mb-0">Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <p class="mb-1">123 Culinary Street</p>
+                    <p class="mb-1">Foodville, FH 54321</p>
+                    <p class="mb-0">(555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Follow Us</h3>
+                    <div class="social-links d-flex justify-content-center justify-content-md-start">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-tripadvisor fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1" id="dateTime"></p>
+                    <p class="mb-1">&copy; 2025 Gourmet Haven. All rights reserved.</p>
+                    <p class="mb-0">Developed by: KhMatygul Khaisar</p>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quick Contact Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modalContactForm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="modalName" class="form-label">Name *</label>
+                                <input type="text" class="form-control" id="modalName" required>
+                                <div class="invalid-feedback">Please provide your name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modalEmail" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="modalEmail" required>
+                                <div class="invalid-feedback">Please provide a valid email.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="modalMessage" class="form-label">Message *</label>
+                                <textarea class="form-control" id="modalMessage" rows="4" required></textarea>
+                                <div class="invalid-feedback">Please provide your message.</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitModalForm">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/contact.js"></script>
 </body>
 </html>
