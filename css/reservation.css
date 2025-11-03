@@ -10,13 +10,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 body {
     color: var(--text-color);
     line-height: 1.6;
+     font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
 /* Reservations page specific styles */
@@ -27,6 +28,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+    height: 600px;
 }
 
 .section-title {
@@ -564,14 +566,6 @@ footer {
 }
 
 /* Current Time Display */
-.current-time-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
 .current-time-title {
     font-size: 0.9em;
@@ -615,48 +609,6 @@ footer {
     }
 }
 
-/* Policy Accordion */
-.policy-accordion-item {
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.policy-accordion-header {
-    margin: 0;
-}
-
-.policy-accordion-button {
-    width: 100%;
-    padding: 15px 20px;
-    background: #f8f9fa;
-    border: none;
-    text-align: left;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.policy-accordion-button:hover {
-    background: #e9ecef;
-}
-
-.policy-accordion-button:not(.collapsed) {
-    background: #e7f1ff;
-    color: #0c63e4;
-}
-
-.policy-accordion-body {
-    padding: 15px 20px;
-    background: white;
-    border-top: 1px solid #dee2e6;
-}
-
-.dark-mode .policy-accordion-body {
-    background: #2d2d2d;
-    color: #e0e0e0;
-}
-
 /* Form Input Animations */
 .form-control:focus,
 .form-select:focus {
@@ -681,15 +633,7 @@ footer {
     color: var(--text-color);
 }
 
-/* Add these to your existing reservation.css */
-.current-time-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 
 .policy-accordion-item {
     border: 1px solid #dee2e6;
@@ -729,7 +673,7 @@ footer {
 .dark-mode .card {
     background-color: #2d2d2d;
     border-color: #444;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 .dark-mode .bg-light {
@@ -756,7 +700,7 @@ footer {
 
 /* Current Time Display */
 .current-time-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(#8B0000);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -820,26 +764,39 @@ footer {
 .policy-accordion-button {
     width: 100%;
     padding: 15px 20px;
-    background: #f8f9fa;
+    background: #dee2e6;
     border: none;
     text-align: left;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
-.policy-accordion-button:hover {
-    background: #e9ecef;
+.dark-mode .policy-accordion-button{
+    background-color:#2d2d2d;
+    color: white;
 }
 
-.policy-accordion-button:not(.collapsed) {
-    background: #e7f1ff;
-    color: #0c63e4;
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    background-color: yellow;
 }
 
 .policy-accordion-body {
     padding: 15px 20px;
-    background: white;
+    background:#dee2e6;
     border-top: 1px solid #dee2e6;
 }
 
@@ -847,6 +804,7 @@ footer {
     background: #2d2d2d;
     color: #e0e0e0;
 }
+
 
 /* Form Input Animations */
 .form-control:focus,

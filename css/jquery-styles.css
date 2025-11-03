@@ -66,13 +66,18 @@
 
 /* Stats Section - Task 5 */
 .stats-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+background-color: #8B0000;
 }
 
 .stats-section .counter {
     font-size: 3rem;
     font-weight: bold;
     color: white;
+}
+.stats-section .counter1{
+    font-size: 1rem;
+    color: white;
+
 }
 
 /* Search Highlight - Task 3 */

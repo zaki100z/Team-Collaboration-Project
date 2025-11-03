@@ -4,7 +4,6 @@
   --text-color: #333;
   --light-bg: #F8F8F8;
   --dark-bg: #222;
-
   --bg-color: #ffffff;
   --card-bg: #ffffff;
   --card-border: #e0e0e0;
@@ -19,7 +18,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Georgia', serif;
+ 
 }
 
 body {
@@ -27,6 +26,8 @@ body {
   line-height: 1.6;
   background-color: var(--bg-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
 .container {
@@ -47,7 +48,7 @@ header, .navbar {
 }
 
 .logo, .navbar-brand {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: var(--secondary-color);
 }
@@ -56,7 +57,6 @@ header, .navbar {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 25px;
 }
 
 /* Buttons */

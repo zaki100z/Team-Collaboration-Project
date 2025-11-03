@@ -16,11 +16,13 @@ body{
     color: var(--text-color);
     line-height: 1.6;
     font-family: "Poppins", sans-serif;
-    font-weight: 200;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .gallery-hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3') no-repeat center center/cover;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +48,7 @@ body{
 .btn-outline-primary {
     color: var(--primary-color);
     border-color: var(--primary-color);
-}
+}   
 
 .btn-outline-primary:hover {
     background-color: var(--primary-color);
@@ -165,8 +167,8 @@ body.dark-mode {
     right: 20px;
     z-index: 1000;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;

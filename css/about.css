@@ -10,13 +10,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Georgia', serif;
+   
 }
 
 body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
 .container {
@@ -43,13 +45,6 @@ header,
     color: var(--secondary-color);
 }
 
-.nav-links,
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 25px;
-}
 
 .nav-links li,
 .navbar-nav .nav-item {
@@ -64,11 +59,6 @@ header,
     padding: 6px 0;
 }
 
-.nav-links li:hover,
-.navbar-nav .nav-item:hover {
-    transition: 0.5s;
-    border-bottom: 2px solid var(--secondary-color);
-}
 
 .nav-links a:hover,
 .nav-link:hover {
