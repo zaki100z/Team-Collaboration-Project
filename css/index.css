@@ -119,3 +119,28 @@ footer{ background:var(--footer-bg); color:#fff; padding:40px 0; transition:back
   #reservationItem .btn { margin-top: 0.25rem; }
   #reservationItem .dark-mode-toggle { margin-top: 0.25rem; }
 }
+/* Paste near your responsive rules or at the end of index.css */
+@media (min-width: 992px) {
+  /* Make the auth area a horizontal flex row on large screens */
+  .navbar .auth-nav,
+  .navbar-nav.auth-nav {
+    display: flex !important;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  /* Ensure each auth list item is inline and not full-width */
+  .navbar .auth-nav > li,
+  .navbar-nav.auth-nav > li {
+    display: inline-flex !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Remove top margin that was added for stacked mobile layout */
+  .navbar .auth-nav .btn,
+  .navbar-nav.auth-nav .btn {
+    margin-top: 0 !important;
+  }
+}
