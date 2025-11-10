@@ -26,23 +26,26 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-primary mt-2 mt-lg-0" href="reservation.html">Reservations</a>
-          </li>
-          <!-- Add this to your existing navbar, usually after the Reservations button -->
-          <ul class="navbar-nav ms-auto auth-nav">
-              <!-- This will be dynamically populated by JavaScript -->
-          </ul>
-          <li class="nav-item d-flex align-items-center ms-3">
-            <button class="dark-mode-toggle btn btn-sm" id="darkModeToggle" aria-pressed="false" title="Toggle Dark Mode">🌙</button>
-          </li>
-        </ul>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+      <li class="nav-item ms-lg-2 reservation" id="reservationItem">
+        <a class="btn btn-primary mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+      </li>
+
+      <li class="nav-item ms-auto auth-nav" id="authNav">
+        <!-- auth links go here if needed -->
+      </li>
+
+      <li class="nav-item d-flex align-items-center ms-3" id="darkModeContainer">
+        <button class="dark-mode-toggle btn btn-sm" id="darkModeToggle" aria-pressed="false" title="Toggle Dark Mode" type="button">🌙</button>
+      </li>
+    </ul>
+
       </div>
     </div>
   </nav>

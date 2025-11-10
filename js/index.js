@@ -70,3 +70,77 @@ $(function () {
   // Enhance contact tel link for accessibility: ensure readable text but keep number visible
   $('.contact-link').attr('aria-label', 'Call Gourmet Haven at (555) 123-4567');
 });
+
+(function () {
+  const MAX_WIDTH = 768;
+  const btn = document.getElementById('darkModeToggle') || document.querySelector('.dark-mode-toggle');
+  if (!btn) return;
+
+  // Find reservation <li> robustly
+  function findReservationItem() {
+    return document.getElementById('reservationItem')
+      || document.querySelector('li.reservation')
+      || (function () {
+        const a = document.querySelector('a[href*="reservation"]');
+        return a ? a.closest('li') : null;
+      })()
+      || Array.from(document.querySelectorAll('.navbar-nav li')).find(li => /reservation/i.test(li.textContent));
+  }
+
+  const reservationItem = findReservationItem();
+  const originalParent = btn.parentElement;
+  const originalNextSibling = btn.nextSibling;
+
+  // Ensure button is a plain button and not treated as a bootstrap toggle
+  btn.type = btn.type || 'button';
+  btn.removeAttribute('data-bs-toggle');
+  btn.removeAttribute('data-bs-target');
+  btn.removeAttribute('data-bs-auto-close');
+
+  // Prevent clicks/touches on the dark button from bubbling to the navbar/collapse
+  // This handler runs in the bubble phase (default) so it executes after existing
+  // button handlers and then stops the event from reaching parent handlers.
+  function stopBubble(e) {
+    e.stopPropagation();
+  }
+
+  // Attach once (idempotent)
+  btn.addEventListener('click', stopBubble, { passive: false });
+  btn.addEventListener('touchstart', stopBubble, { passive: true });
+
+  // Utility: insert newNode after referenceNode
+  function insertAfter(referenceNode, newNode) {
+    if (!referenceNode || !referenceNode.parentNode) return;
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
+  function placeButton() {
+    const small = window.innerWidth <= MAX_WIDTH;
+    if (small && reservationItem) {
+      // Place right after the reservation anchor if present, otherwise append inside the li
+      const anchor = reservationItem.querySelector('a');
+      if (anchor) {
+        if (anchor.nextSibling !== btn) insertAfter(anchor, btn);
+      } else {
+        if (!reservationItem.contains(btn)) reservationItem.appendChild(btn);
+      }
+    } else {
+      // Restore to original location
+      if (originalParent && originalParent !== btn.parentElement) {
+        if (originalNextSibling && originalNextSibling.parentElement === originalParent) {
+          originalParent.insertBefore(btn, originalNextSibling);
+        } else {
+          originalParent.appendChild(btn);
+        }
+      }
+    }
+  }
+
+  // Initial placement and debounced resize handler
+  placeButton();
+  let resizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(placeButton, 120);
+  });
+})();
