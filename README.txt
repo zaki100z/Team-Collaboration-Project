@@ -1,35 +1,47 @@
-RESTAURANT WEBSITE PROJECT
-==========================
-**************LIVE WEBSITE**************
-https://gourmet-haven-resturant.netlify.app/
-****************************************
-This is a complete restaurant website built with HTML and CSS only (no Bootstrap).
+# Gourmet Haven Restaurant Website
 
-Files included:
-1. index.html - Home page with hero section, featured dishes, and testimonials
-2. menu.html - Menu page with categorized food items and prices
-3. about.html - About page with restaurant history and team information
-4. gallery.html - Gallery page with filterable image gallery
-5. contact.html - Contact page with form and location information
-6. reservations.html - Reservations page with booking form and policy information
+A responsive restaurant website with modern features including user authentication, menu browsing, reservations, and interactive ratings.
 
-Team Members:
-- Zaki Sadaqatzada
-- KhMatygul Khaisar
--Askaruly Temirlan
+## Features
+-  Full restaurant menu with categories
+-  User authentication (signup/login)
+-  Dish rating system
+-  Dark/Light mode toggle
+-  Fully responsive design
+-  Real-time search and filtering
+-  Online reservation system
+- Food API integration
 
-Features:
-- Fully responsive design
-- Consistent styling across all pages
-- Interactive elements (forms, gallery filters)
-- Semantic HTML5 structure
-- CSS Grid and Flexbox layouts
+## Technologies Used
+- HTML5, CSS3, JavaScript
+- jQuery 3.7.1
+- Bootstrap 5.3.8
+- Spoonacular Food API
+- LocalStorage for data persistence
 
-To use:
-1. Extract all files to a folder
-2. Open index.html in a web browser
-3. Navigate between pages using the navigation menu
+## Live Demo
 
 
-Note: Image placeholders are used where real images would be added in a production environment.
-
+## Project Structure
+gourmet-haven/
+├── index.html # Homepage
+├── menu.html # Menu page
+├── about.html # About us
+├── gallery.html # Photo gallery
+├── contact.html # Contact form
+├── reservation.html # Reservation system
+├── login.html # User login
+├── signup.html # User registration
+├── profile.html # User profile
+├── css/
+│ ├── gallery.css
+│ ├── auth.css
+│ └── jquery-styles.css
+├── js/
+│ ├── auth.js
+│ ├── gallery.js
+│ ├── reservation.js
+│ ├── api-integration.js
+│ └── ratings.js
+└── Images/
+└── # Restaurant images
