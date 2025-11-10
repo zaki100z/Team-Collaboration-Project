@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/auth.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -35,9 +37,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+                    <!-- Add this to your existing navbar, usually after the Reservations button -->
+                    
                     <li class="nav-item">
                         <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
                     </li>
+                    <ul class="navbar-nav ms-auto auth-nav">
+                        <!-- This will be dynamically populated by JavaScript -->
+                    </ul>
                 </ul>
             </div>
         </div>
@@ -240,12 +247,12 @@
             
            
             <div class="row g-4 gallery-grid">
-                <div class="col-sm-6 col-lg-4 gallery-item" data-category="food">
+                <div class="col-sm-6 col-lg-4 gallery-item" data-category="restaurant">
                     <div class="card h-100 border-0 shadow-sm">
-                        <img src="Images/food2.jpg" class="card-img-top" style="height:200px; object-fit:cover;"alt="Signature Grilled Salmon">
+                        <img src="Images/resturant2.jpg" class="card-img-top" alt="Main Dining Room">
                         <div class="card-body">
-                            <h5 class="card-title">Signature Grilled Salmon</h5>
-                            <p class="card-text">Perfectly grilled salmon with seasonal vegetables and our special herb butter sauce.</p>
+                            <h5 class="card-title">Main Dining Room</h5>
+                            <p class="card-text">Our elegant main dining area with comfortable seating and ambient lighting.</p>
                         </div>
                     </div>
                 </div>
@@ -297,7 +304,79 @@
             </div>
         </div>
     </section>
+<!-- Add this section before the Contact Us section -->
+<section class="py-5" style="background-color:#8B0000; ">
+    <div class="container text-light">
+        <h2 class="section-title text-center mb-5">Featured Recipes & Culinary Inspiration</h2>
+        <!-- Food Trivia Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center py-4">
+                        <h4 class="card-title mb-3">
+                            <i class="fas fa-lightbulb text-warning me-2"></i>Did You Know?
+                        </h4>
+                        <p class="card-text fs-5 fst-italic" id="foodTrivia">
+                            
+                        </p>
+                        <button class="btn btn-outline-warning btn-sm mt-2" id="refreshTrivia">
+                            <i class="fas fa-sync-alt me-1"></i>Another Fact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Recipe Suggestions Section -->
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-center mb-4">Featured Recipe Ideas</h4>
+                <div class="row g-4" id="recipeSuggestions">
+                    <!-- Recipes will be loaded here by JavaScript -->
+                    <div class="col-12 text-center">
+                        <div class="spinner-border text-warning" role="status">
+                            <span class="visually-hidden">Loading recipes...</span>
+                        </div>
+                        <p class="mt-2">Loading delicious recipe ideas...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Rating Modal -->
+<div class="modal fade" id="ratingModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rate This Dish</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-3">
+                    <h6 id="ratingItemName"></h6>
+                    <div class="star-rating mb-2">
+                        <span class="star" data-rating="1">☆</span>
+                        <span class="star" data-rating="2">☆</span>
+                        <span class="star" data-rating="3">☆</span>
+                        <span class="star" data-rating="4">☆</span>
+                        <span class="star" data-rating="5">☆</span>
+                    </div>
+                    <small class="text-muted" id="ratingText">Tap stars to rate</small>
+                    <div class="mt-2">
+                        <small class="text-warning fw-bold" id="selectedRating"></small>
+                    </div>
+                </div>
+                <textarea class="form-control" id="ratingComment" placeholder="Share your experience (optional)" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="submitRating">Submit Rating</button>
+            </div>
+        </div>
+    </div>
+</div>
     <section class="py-5 bg-light">
         <div class="container">
             <h2 class="section-title text-center mb-5">Contact Us</h2>
@@ -390,5 +469,7 @@
     <button class="dark-mode-toggle btn btn-warning" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="js/Gallery.js"></script>
+    <script src="js/api-integration.js"></script>
+    <script src="js/ratings.js"></script>
 </body>
 </html>

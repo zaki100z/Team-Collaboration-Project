@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Gourmet Haven</title>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/jquery-styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav auth-nav">
+                    <!-- Dynamic content -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Hero -->
+    <section class="profile-hero py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">My Profile</h1>
+                    <p class="lead">Manage your account and preferences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-4 mb-4">
+                    <div class="profile-sidebar card border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-body text-center p-4">
+                            <div class="profile-avatar mb-3">
+                                <div class="avatar-placeholder bg-warning rounded-circle d-inline-flex align-items-center justify-content-center" 
+                                     style="width: 100px; height: 100px;">
+                                    <span class="text-dark fw-bold fs-2" id="avatarInitials">JD</span>
+                                </div>
+                            </div>
+                            <h4 id="profileName" class="mb-2">John Doe</h4>
+                            <div class="member-tier mb-3">
+                                <span class="badge bg-warning text-dark fs-6" id="memberTier">Gold Member</span>
+                            </div>
+                            <div class="member-points">
+                                <h5 class="text-primary mb-1" id="memberPoints">1,250</h5>
+                                <small>Loyalty Points</small>
+                            </div>
+                            <div class="member-since mt-3">
+                                <small>Member since <span id="memberSince">Jan 2024</span></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="profile-content card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <!-- Profile Navigation -->
+                            <ul class="nav nav-pills mb-4" id="profileTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="personal-tab" data-bs-toggle="pill" data-bs-target="#personal" type="button">
+                                        <i class="fas fa-user me-2"></i>Personal Info
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="preferences-tab" data-bs-toggle="pill" data-bs-target="#preferences" type="button">
+                                        <i class="fas fa-cog me-2"></i>Preferences
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="rewards-tab" data-bs-toggle="pill" data-bs-target="#rewards" type="button">
+                                        <i class="fas fa-gift me-2"></i>Rewards
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="profileTabsContent">
+                                <!-- Personal Info Tab -->
+                                <div class="tab-pane fade show active" id="personal" role="tabpanel">
+                                    <h4 class="mb-4">Personal Information</h4>
+                                    <form id="profileForm">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="profileFirstName" value="John">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="profileLastName" value="Doe">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="profileEmail" value="john.doe@email.com">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="profilePhone" value="(555) 123-4567">
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Preferences Tab -->
+                                <div class="tab-pane fade" id="preferences" role="tabpanel">
+                                    <h4 class="mb-4">Dining Preferences</h4>
+                                    <form id="preferencesForm">
+                                        <div class="mb-3">
+                                            <label class="form-label">Favorite Cuisine</label>
+                                            <select class="form-select" id="favoriteCuisine">
+                                                <option>Italian</option>
+                                                <option>French</option>
+                                                <option>Asian</option>
+                                                <option>American</option>
+                                                <option>Mediterranean</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Special Dietary Requirements</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="vegetarian">
+                                                <label class="form-check-label" for="vegetarian">Vegetarian</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="vegan">
+                                                <label class="form-check-label" for="vegan">Vegan</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="glutenFree">
+                                                <label class="form-check-label" for="glutenFree">Gluten-Free</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Save Preferences</button>
+                                    </form>
+                                </div>
+
+                                <!-- Rewards Tab -->
+                                <div class="tab-pane fade" id="rewards" role="tabpanel">
+                                    <h4 class="mb-4">Your Rewards</h4>
+                                    <div class="rewards-grid">
+                                        <div class="reward-card card border-0 bg-warning text-dark mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Welcome Bonus</h5>
+                                                <p class="card-text">100 points - Claimed</p>
+                                            </div>
+                                        </div>
+                                        <div class="reward-card card border-0 bg-light mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Free Dessert</h5>
+                                                <p class="card-text">500 points - Available</p>
+                                                <button class="btn btn-sm btn-primary">Redeem</button>
+                                            </div>
+                                        </div>
+                                        <div class="reward-card card border-0 bg-light">
+                                            <div class="card-body">
+                                                <h5 class="card-title">25% Off Next Visit</h5>
+                                                <p class="card-text">750 points - Available</p>
+                                                <button class="btn btn-sm btn-primary">Redeem</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <!-- Same footer as other pages -->
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle btn btn-warning" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

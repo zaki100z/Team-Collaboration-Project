@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gourmet Haven</title>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/jquery-styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">Gourmet Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-2 mt-2 mt-lg-0" href="reservation.html">Reservations</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav auth-nav">
+                    <!-- Dynamic content -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Hero Section -->
+    <section class="auth-hero py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Welcome Back</h1>
+                    <p class="lead">Sign in to access exclusive member benefits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Form Section -->
+    <section class="auth-section py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="auth-card card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <h2 class="auth-title">Sign In</h2>
+                                <p class="text-muted">Enter your credentials to continue</p>
+                            </div>
+
+                            <form id="loginForm" class="auth-form">
+                                <div class="mb-4">
+                                    <label for="loginEmail" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="loginEmail" placeholder="your@email.com" required>
+                                    </div>
+                                    <div class="form-text">We'll never share your email</div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="loginPassword" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                        <button class="btn btn-outline-secondary password-toggle" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <a href="#" class="text-decoration-none forgot-password">Forgot password?</a>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100 py-3 mb-4 auth-submit-btn">
+                                    <span class="btn-text">Sign In</span>
+                                    <div class="btn-loading spinner-border spinner-border-sm d-none" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </button>
+                            </form>
+
+                            <div class="text-center">
+                                <p class="mb-0">Don't have an account? 
+                                    <a href="signup.html" class="text-decoration-none fw-bold auth-link">Sign up here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Sidebar -->
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="benefits-card card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4 text-center">
+                                <i class="fas fa-crown text-warning me-2"></i>Member Benefits
+                            </h4>
+                            <div class="benefits-list">
+                                <div class="benefit-item d-flex align-items-center mb-3">
+                                    <i class="fas fa-percentage text-success me-3"></i>
+                                    <span>Exclusive discounts & offers</span>
+                                </div>
+                                <div class="benefit-item d-flex align-items-center mb-3">
+                                    <i class="fas fa-clock text-primary me-3"></i>
+                                    <span>Faster reservation process</span>
+                                </div>
+                                <div class="benefit-item d-flex align-items-center mb-3">
+                                    <i class="fas fa-gift text-danger me-3"></i>
+                                    <span>Birthday surprises & rewards</span>
+                                </div>
+                                <div class="benefit-item d-flex align-items-center mb-3">
+                                    <i class="fas fa-star text-warning me-3"></i>
+                                    <span>Loyalty points on every visit</span>
+                                </div>
+                                <div class="benefit-item d-flex align-items-center">
+                                    <i class="fas fa-calendar-alt text-info me-3"></i>
+                                    <span>Early access to special events</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Hours</h3>
+                    <p class="mb-1">Monday - Thursday: 11am - 10pm</p>
+                    <p class="mb-1">Friday - Saturday: 11am - 11pm</p>
+                    <p class="mb-0">Sunday: 12pm - 9pm</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contact</h3>
+                    <p class="mb-1">123 Culinary Street</p>
+                    <p class="mb-1">Foodville, FH 54321</p>
+                    <p class="mb-0">(555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Follow Us</h3>
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <a href="#" class="text-white text-decoration-none me-3">Facebook</a>
+                        <span class="text-white">|</span>
+                        <a href="#" class="text-white text-decoration-none mx-3">Twitter</a>
+                        <span class="text-white">|</span>
+                        <a href="#" class="text-white text-decoration-none ms-3">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-1">&copy; 2025 Gourmet Haven. All rights reserved.</p>
+                    <p class="mb-0">Developed by: Zaki Sadaqatzada</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle btn btn-warning" id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
