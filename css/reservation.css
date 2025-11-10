@@ -820,7 +820,7 @@ footer {
 .policy-accordion-button {
     width: 100%;
     padding: 15px 20px;
-    background: #f8f9fa;
+    background:#2d2d2d;
     border: none;
     text-align: left;
     font-weight: 500;
@@ -829,12 +829,12 @@ footer {
 }
 
 .policy-accordion-button:hover {
-    background: #e9ecef;
+    background: #2d2d2d;
 }
 
 .policy-accordion-button:not(.collapsed) {
     background: #e7f1ff;
-    color: #0c63e4;
+    color: #8B0000;
 }
 
 .policy-accordion-body {

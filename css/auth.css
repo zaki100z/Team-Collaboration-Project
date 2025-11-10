@@ -1,0 +1,58 @@
+/* Dark Mode Support */
+.dark-mode .auth-card {
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+}
+
+.dark-mode .auth-title {
+    color: #e2e8f0;
+}
+
+.dark-mode .auth-form .form-control {
+    background-color: #4a5568;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.dark-mode .auth-form .form-control:focus {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #ffc107;
+}
+
+.dark-mode .auth-form .input-group-text {
+    background: linear-gradient(135deg, #4a5568, #2d3748);
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+.dark-mode .benefits-card {
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+}
+
+.dark-mode .profile-sidebar,
+.dark-mode .profile-content {
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+}
+
+.dark-mode .nav-pills .nav-link {
+    color: #e2e8f0;
+}
+
+.dark-mode .nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* Profile Page Dark Mode */
+.dark-mode .profile-hero {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), 
+                url('../Images/resturant3.jpg') center/cover no-repeat;
+}
+
+.dark-mode .reward-card.bg-light {
+    background: #4a5568 !important;
+    color: #e2e8f0;
+}

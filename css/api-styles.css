@@ -1,0 +1,83 @@
+/* API Integration Styles */
+.recipe-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.recipe-image {
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .recipe-image {
+    transform: scale(1.05);
+}
+
+.star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    transition: color 0.2s ease;
+}
+
+.star:hover {
+    color: #ffc107 !important;
+}
+
+/* Food Trivia Styles */
+#foodTrivia {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Recipe Modal Styles */
+.recipe-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.recipe-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Dark Mode Support for API Features */
+.dark-mode .recipe-card {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+.dark-mode .recipe-info {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
+/* Loading States */
+.api-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+/* Responsive Recipe Cards */
+@media (max-width: 768px) {
+    .recipe-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .star-rating {
+        font-size: 20px;
+    }
+}
