@@ -221,29 +221,21 @@
             <h2 class="section-title text-center mb-5">Find Us</h2>
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-0">
-                    <div class="map-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
-                        <div class="text-center">
-                            <i class="fas fa-map fa-3x text-muted mb-3"></i>
-                            <h4>Interactive Map</h4>
-                            <p class="text-muted">123 Culinary Street, Foodville, FH 54321</p>
-                            <button class="btn btn-primary mt-2" onclick="openDirections()">
-                                <i class="fas fa-directions me-2"></i>Get Directions
-                            </button>
-                        </div>
+                    <div class="map-placeholder bg-light" style="height: 400px;">
+                        <!-- Embedded Google Map: iframe will be made to fully cover the placeholder via CSS -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.963593157529!2d71.41381708202441!3d51.090679398106154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424585a605525605%3A0x4dff4a1973f7567e!2sAstana%20IT%20University!5e0!3m2!1skk!2skz!4v1763119421767!5m2!1skk!2skz"
+                            title="Gourmet Haven location"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Theme Toggle Section -->
-    <section class="theme-section py-5">
-        <div class="container text-center">
-            <button class="btn btn-outline-primary btn-lg" id="themeToggle">
-                Toggle Dark/Light Mode
-            </button>
-        </div>
-    </section>
+
 
     <footer class="bg-dark text-white py-5">
         <div class="container">
