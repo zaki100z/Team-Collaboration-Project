@@ -315,3 +315,26 @@ h1, h2, h3, h4, h5, h6, p, span, div, li, a {
 .nav-link:hover {
     color: var(--secondary-color) !important;
 }
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 320px;
+    height: 100%;
+    background: var(--card-bg);
+    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+    padding: 20px;
+    transition: right 0.35s ease;
+    z-index: 2000;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+#cartList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
