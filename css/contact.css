@@ -167,6 +167,22 @@ footer {
     background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-bg) 100%);
 }
 
+/* Make embedded maps/iframes fill their container */
+.map-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+
+.map-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0 !important;
+}
+
 /* Modal Styles */
 .modal-content {
     background-color: var(--card-bg);
