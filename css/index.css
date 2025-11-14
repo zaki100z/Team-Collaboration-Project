@@ -101,12 +101,6 @@ footer{ background:var(--footer-bg); color:#fff; padding:40px 0; transition:back
   .hero { min-height: 50vh; }
   .current-time { font-size: 1.3rem; }
 
-  /* keep nav items stacked by default */
-  .navbar .navbar-collapse { display: block !important; }
-  .navbar .navbar-nav { display: block; padding-left: 0; }
-  .navbar .navbar-nav > li { display: block; width: 100%; margin-bottom: 0.5rem; }
-
-  /* make the reservation item an inline-flex container so a button appended inside sits beside it */
   #reservationItem {
     display: inline-flex;
     align-items: center;
@@ -115,7 +109,6 @@ footer{ background:var(--footer-bg); color:#fff; padding:40px 0; transition:back
     margin-bottom: 0;
   }
 
-  /* small spacing tweaks for the inline group */
   #reservationItem .btn { margin-top: 0.25rem; }
   #reservationItem .dark-mode-toggle { margin-top: 0.25rem; }
 }
